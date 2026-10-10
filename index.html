@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="./assets/agentic-swarm-core.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='6' fill='%2306080d'/><path d='M6 16h4l3-8 6 16 3-8h4' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='8' fill='%2305070c'/><path d='M6 16h4l3-8 6 16 3-8h4' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,20 +29,22 @@
 
   <style>
     :root {
-      --bg-base: #05070c;
-      --bg-surface: #0a0e17;
-      --bg-surface-elevated: #111726;
-      --bg-surface-glass: rgba(10, 14, 23, 0.75);
+      --bg-base: #04060a;
+      --bg-surface: #090d16;
+      --bg-surface-elevated: #101624;
+      --bg-surface-glass: rgba(9, 13, 22, 0.72);
       
       --accent-cyan: #38bdf8;
-      --accent-cyan-glow: rgba(56, 189, 248, 0.3);
+      --accent-cyan-light: #7dd3fc;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.25);
       --accent-indigo: #6366f1;
       --accent-emerald: #10b981;
       --accent-amber: #f59e0b;
       --accent-rose: #f43f5e;
       
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-active: rgba(56, 189, 248, 0.35);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-active: rgba(56, 189, 248, 0.45);
       
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -52,9 +54,9 @@
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
       --radius-full: 9999px;
     }
 
@@ -75,11 +77,14 @@
 
     body {
       overflow-x: hidden;
-      background: 
-        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
-        radial-gradient(circle at 85% 35%, rgba(99, 102, 241, 0.09) 0%, transparent 50%),
-        radial-gradient(circle at 15% 65%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
-        var(--bg-base);
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 65%, rgba(16, 185, 129, 0.06) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 72px 72px, 72px 72px;
       min-height: 100vh;
     }
 
@@ -87,6 +92,18 @@
       max-width: 1220px;
       margin: 0 auto;
       padding: 0 1.5rem;
+    }
+
+    /* Ambient Lighting */
+    .glow-sphere {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* Navbar */
@@ -97,9 +114,9 @@
       right: 0;
       z-index: 100;
       padding: 1.15rem 0;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(5, 7, 12, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(4, 6, 10, 0.8);
       border-bottom: 1px solid var(--border-subtle);
       transition: all 0.3s ease;
     }
@@ -113,21 +130,21 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       text-decoration: none;
       color: var(--text-main);
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(99, 102, 241, 0.2));
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.25));
       border: 1px solid var(--border-active);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     }
 
     .brand-name {
@@ -144,7 +161,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.25rem;
       list-style: none;
     }
 
@@ -165,63 +182,66 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 0.65rem 1.25rem;
+      padding: 0.7rem 1.4rem;
       border-radius: var(--radius-full);
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       border: 1px solid transparent;
+      line-height: 1;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-      color: #040810;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #030712;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 28px rgba(56, 189, 248, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.6);
       background: linear-gradient(135deg, #7dd3fc 0%, #3b82f6 100%);
     }
 
     .btn-secondary {
       background: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-medium);
       backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.09);
       border-color: var(--border-active);
       color: var(--accent-cyan);
+      transform: translateY(-2px);
     }
 
     /* Hero Section */
     .hero {
-      padding-top: 9.5rem;
-      padding-bottom: 5rem;
+      padding-top: 10.5rem;
+      padding-bottom: 5.5rem;
       position: relative;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.95rem;
+      gap: 0.6rem;
+      padding: 0.4rem 1.1rem;
       border-radius: var(--radius-full);
       background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       font-family: var(--font-mono);
       font-size: 0.8rem;
-      color: var(--accent-cyan);
-      margin-bottom: 1.75rem;
-      letter-spacing: 0.05em;
+      color: var(--accent-cyan-light);
+      margin-bottom: 2rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
     }
 
     .hero-badge-pulse {
@@ -235,31 +255,31 @@
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(0.8); }
+      50% { opacity: 0.35; transform: scale(0.85); }
     }
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      font-size: clamp(2.6rem, 5.8vw, 4.8rem);
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      margin-bottom: 1.5rem;
-      max-width: 960px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.75rem;
+      max-width: 980px;
     }
 
     .hero-title .gradient-text {
-      background: linear-gradient(135deg, #ffffff 25%, #38bdf8 70%, #818cf8 100%);
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #a5b4fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-subhead {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
       color: var(--text-muted);
-      max-width: 820px;
+      max-width: 800px;
       line-height: 1.65;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.75rem;
       font-weight: 400;
     }
 
@@ -268,19 +288,68 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 1.25rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    /* Authority Metrics Strip */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+      border-radius: var(--radius-lg);
+      background: rgba(9, 13, 22, 0.6);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 4rem;
+      backdrop-filter: blur(12px);
+    }
+
+    @media (max-width: 820px) {
+      .metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .metric-val {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .metric-val span {
+      color: var(--accent-cyan);
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     /* Hero Visual Card */
     .hero-visual {
       position: relative;
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-medium);
       background: var(--bg-surface);
       overflow: hidden;
       box-shadow: 
-        0 20px 80px rgba(0, 0, 0, 0.8),
-        0 0 100px rgba(56, 189, 248, 0.12);
+        0 30px 100px rgba(0, 0, 0, 0.85),
+        0 0 120px rgba(56, 189, 248, 0.15);
     }
 
     .hero-visual img {
@@ -289,7 +358,7 @@
       display: block;
       object-fit: cover;
       aspect-ratio: 16 / 9;
-      filter: saturate(1.1) contrast(1.05);
+      filter: saturate(1.1) contrast(1.04);
     }
 
     .hero-overlay-bar {
@@ -297,20 +366,20 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.6) 70%, transparent 100%);
+      padding: 1.6rem 2.2rem;
+      background: linear-gradient(to top, rgba(4, 6, 10, 0.98) 0%, rgba(4, 6, 10, 0.65) 75%, transparent 100%);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      gap: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .telemetry-chip {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       font-family: var(--font-mono);
       font-size: 0.82rem;
       color: var(--text-muted);
@@ -323,56 +392,58 @@
 
     /* Section Global */
     .section {
-      padding: 6.5rem 0;
+      padding: 7rem 0;
       position: relative;
     }
 
     .section-header {
-      margin-bottom: 3.5rem;
+      margin-bottom: 3.75rem;
     }
 
     .section-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.82rem;
       color: var(--accent-cyan);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .section-eyebrow::before {
       content: '';
       display: inline-block;
-      width: 16px;
-      height: 1px;
+      width: 18px;
+      height: 1.5px;
       background: var(--accent-cyan);
     }
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.85rem, 3.5vw, 2.85rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+      margin-bottom: 1.15rem;
     }
 
     .section-desc {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 720px;
+      font-size: 1.12rem;
+      max-width: 740px;
+      line-height: 1.65;
     }
 
-    /* Signature Interactive Element: The Agentic Swarm Simulator */
+    /* Signature Interactive Simulator */
     .swarm-sim-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-medium);
       border-radius: var(--radius-lg);
       padding: 2.25rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+      position: relative;
     }
 
     .sim-top-bar {
@@ -380,36 +451,36 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      padding-bottom: 1.25rem;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .sim-status {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       font-family: var(--font-mono);
       font-size: 0.85rem;
     }
 
     .status-indicator {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: var(--accent-emerald);
-      box-shadow: 0 0 10px var(--accent-emerald);
+      box-shadow: 0 0 12px var(--accent-emerald);
     }
 
     .task-selector-group {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
 
     .task-chip {
-      padding: 0.45rem 0.9rem;
+      padding: 0.5rem 1.05rem;
       border-radius: var(--radius-full);
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
@@ -431,7 +502,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       position: relative;
     }
 
@@ -445,23 +516,30 @@
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 1.25rem 1rem;
+      padding: 1.4rem 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      transition: all 0.3s ease;
+      gap: 0.65rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
 
     .dag-node.active {
       border-color: var(--accent-cyan);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
-      background: rgba(56, 189, 248, 0.05);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+      background: rgba(56, 189, 248, 0.06);
+      transform: translateY(-2px);
     }
 
     .dag-node.completed {
       border-color: var(--accent-emerald);
-      background: rgba(16, 185, 129, 0.03);
+      background: rgba(16, 185, 129, 0.04);
+    }
+
+    .dag-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .dag-step-number {
@@ -471,11 +549,17 @@
       font-weight: 600;
     }
 
+    .dag-node-icon {
+      color: var(--accent-cyan);
+      opacity: 0.7;
+    }
+
     .dag-node-role {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: var(--text-main);
+      line-height: 1.3;
     }
 
     .dag-node-status {
@@ -493,21 +577,50 @@
       color: var(--accent-emerald);
     }
 
-    /* Live Terminal Console */
-    .sim-console {
-      background: #020408;
-      border: 1px solid var(--border-subtle);
+    /* Terminal Console */
+    .terminal-window {
+      background: #020307;
+      border: 1px solid var(--border-medium);
       border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .terminal-header {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-left: 0.5rem;
+    }
+
+    .sim-console {
       padding: 1.25rem;
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      min-height: 180px;
+      min-height: 190px;
       max-height: 240px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 0.45rem;
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .log-line {
@@ -528,152 +641,90 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
-    /* Pillars Cards */
-    .cards-grid {
+    /* Bento Grid Section */
+    .bento-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: 1.75rem;
     }
 
-    @media (max-width: 900px) {
-      .cards-grid {
-        grid-template-columns: 1fr;
+    .bento-col-8 { grid-column: span 8; }
+    .bento-col-4 { grid-column: span 4; }
+    .bento-col-6 { grid-column: span 6; }
+
+    @media (max-width: 960px) {
+      .bento-col-8, .bento-col-4, .bento-col-6 {
+        grid-column: span 12;
       }
     }
 
-    .card {
+    .bento-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
       overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
     }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .card:hover {
+    .bento-card:hover {
       transform: translateY(-4px);
       border-color: var(--border-active);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(56, 189, 248, 0.1);
     }
 
-    .card:hover::before {
-      opacity: 1;
+    .bento-img-wrap {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      background: #020408;
     }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+    .bento-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bento-card:hover .bento-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .bento-content {
+      padding: 2.25rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .bento-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       color: var(--accent-cyan);
-    }
-
-    .card-title {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
     }
 
-    .card-text {
+    .bento-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .bento-text {
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.6;
-    }
-
-    /* Architecture Split Section */
-    .arch-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    @media (max-width: 900px) {
-      .arch-split {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .arch-visual {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      overflow: hidden;
-      background: var(--bg-surface);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
-
-    .arch-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 16 / 9;
-    }
-
-    .spec-list {
-      list-style: none;
-      display: grid;
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .spec-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .spec-bullet {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-cyan);
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.15rem;
-    }
-
-    .spec-content h4 {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .spec-content p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
     }
 
     /* Comparison Table */
@@ -682,7 +733,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      margin-top: 3.5rem;
+      margin-top: 4rem;
     }
 
     .comp-table {
@@ -693,7 +744,7 @@
     }
 
     .comp-table th, .comp-table td {
-      padding: 1.25rem 1.75rem;
+      padding: 1.35rem 1.85rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -724,30 +775,32 @@
 
     /* Partner & Inquiries Section */
     .partner-card {
-      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, rgba(10, 14, 23, 0.9) 70%);
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.16) 0%, rgba(9, 13, 22, 0.95) 75%),
+        var(--bg-surface);
       border: 1px solid var(--border-active);
       border-radius: var(--radius-lg);
-      padding: 4.5rem 2.5rem;
+      padding: 5rem 2.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.7);
     }
 
     .partner-title {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.2rem, 4.2vw, 3.2rem);
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       margin-bottom: 1.25rem;
     }
 
     .partner-desc {
       color: var(--text-muted);
       font-size: 1.15rem;
-      max-width: 660px;
-      margin: 0 auto 2.5rem auto;
-      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 2.75rem auto;
+      line-height: 1.65;
     }
 
     .contact-action-bar {
@@ -755,16 +808,16 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .copy-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border-subtle);
+      padding: 0.75rem 1.6rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-medium);
       border-radius: var(--radius-full);
       font-family: var(--font-mono);
       font-size: 0.92rem;
@@ -775,23 +828,24 @@
 
     .copy-pill:hover {
       border-color: var(--accent-cyan);
-      background: rgba(56, 189, 248, 0.08);
+      background: rgba(56, 189, 248, 0.09);
+      transform: translateY(-2px);
     }
 
     .toast-feedback {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--accent-cyan);
       font-family: var(--font-mono);
-      min-height: 1.2rem;
-      margin-top: 1rem;
+      min-height: 1.4rem;
+      margin-top: 1.25rem;
     }
 
     /* Footer */
     .footer {
       border-top: 1px solid var(--border-subtle);
-      padding: 3.5rem 0;
+      padding: 4rem 0;
       color: var(--text-dim);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .footer-inner {
@@ -804,7 +858,7 @@
 
     .footer-links {
       display: flex;
-      gap: 1.75rem;
+      gap: 2rem;
       list-style: none;
     }
 
@@ -823,14 +877,14 @@
         display: none;
       }
       .hero {
-        padding-top: 7.5rem;
+        padding-top: 8rem;
       }
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
       .partner-card {
-        padding: 3rem 1.5rem;
+        padding: 3.5rem 1.5rem;
       }
     }
   </style>
@@ -842,7 +896,7 @@
     <div class="container nav-inner">
       <a href="#" class="brand">
         <div class="brand-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 14h3l3-7 4 14 3-7h3" stroke="#38bdf8"/>
           </svg>
         </div>
@@ -851,8 +905,8 @@
 
       <ul class="nav-links">
         <li><a href="#swarm-orchestrator" class="nav-link">Swarm Engine</a></li>
-        <li><a href="#pillars" class="nav-link">Capabilities</a></li>
-        <li><a href="#architecture" class="nav-link">Harness Architecture</a></li>
+        <li><a href="#infrastructure" class="nav-link">Infrastructure</a></li>
+        <li><a href="#architecture" class="nav-link">Harness Specs</a></li>
         <li><a href="#enterprise" class="nav-link">Partnerships</a></li>
       </ul>
 
@@ -875,19 +929,39 @@
       </h1>
 
       <p class="hero-subhead">
-        Raw foundation models are volatile, stochastic, and uncalibrated. Gaussian Labs engineers high-assurance agentic harnesses, multi-agent execution DAGs, and self-healing verification loops that turn autonomous AI into deterministic enterprise software.
+        Raw foundation models are non-deterministic, volatile, and fragile. Gaussian Labs builds high-assurance agentic harnesses, multi-agent DAGs, and self-healing verification loops that turn autonomous AI into deterministic enterprise software.
       </p>
 
       <div class="hero-actions">
-        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20-%20Gaussian%20Labs" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20-%20Gaussian%20Labs" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
           Initiate Design Partnership
         </a>
-        <a href="#swarm-orchestrator" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+        <a href="#swarm-orchestrator" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
           Inspect Swarm Simulator ↓
         </a>
       </div>
 
-      <!-- Hero Visual Card: Agentic Swarm Matrix -->
+      <!-- Authority Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <div class="metric-val">100<span>%</span></div>
+          <div class="metric-label">Deterministic Verification</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">&lt;0.01<span>%</span></div>
+          <div class="metric-label">Hallucination Drift Rate</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">10<span>x</span></div>
+          <div class="metric-label">Token Unit-Economics</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">MCP<span>+</span></div>
+          <div class="metric-label">Zero-Trust Tool Isolation</div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card: Agentic Swarm Matrix HUD -->
       <div class="hero-visual">
         <img src="./assets/agentic-swarm-core.jpg" alt="Autonomous Agent Swarm Engineering HUD and DAG Architecture" width="1200" height="675" loading="eager" fetchpriority="high">
         <div class="hero-overlay-bar">
@@ -897,7 +971,7 @@
           </div>
           <div class="telemetry-chip">
             <span>TOOL DISPATCH (MCP):</span>
-            <span class="telemetry-val">Sandboxed &amp; Zero-Trust</span>
+            <span class="telemetry-val">Sandboxed &amp; Least-Privilege</span>
           </div>
           <div class="telemetry-chip">
             <span>VERIFICATION GATE:</span>
@@ -915,7 +989,7 @@
         <div class="section-eyebrow">Interactive Swarm Harness</div>
         <h2 class="section-title">The Autonomous Execution Engine</h2>
         <p class="section-desc">
-          Witness our multi-agent architecture in action. Select an enterprise mission and trigger the swarm. Watch specialized subagents analyze, synthesize, cross-audit, and verify production code with automated self-healing.
+          Witness our multi-agent architecture in action. Select an enterprise mission and trigger the swarm. Watch specialized subagents decompose requirements, synthesize code, cross-audit, and verify production pull requests with automated self-healing.
         </p>
       </div>
 
@@ -933,50 +1007,86 @@
           </div>
         </div>
 
-        <!-- 5-Stage DAG Visualization -->
+        <!-- 5-Stage DAG Visualization with Icons -->
         <div class="dag-pipeline" id="dag-container">
           <div class="dag-node" id="node-1">
-            <span class="dag-step-number">PHASE 01</span>
+            <div class="dag-header-flex">
+              <span class="dag-step-number">PHASE 01</span>
+              <svg class="dag-node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+            </div>
             <span class="dag-node-role">Scoping &amp; AST Analysis</span>
             <span class="dag-node-status">Standby</span>
           </div>
 
           <div class="dag-node" id="node-2">
-            <span class="dag-step-number">PHASE 02</span>
+            <div class="dag-header-flex">
+              <span class="dag-step-number">PHASE 02</span>
+              <svg class="dag-node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
             <span class="dag-node-role">Swarm Specialization</span>
             <span class="dag-node-status">Standby</span>
           </div>
 
           <div class="dag-node" id="node-3">
-            <span class="dag-step-number">PHASE 03</span>
+            <div class="dag-header-flex">
+              <span class="dag-step-number">PHASE 03</span>
+              <svg class="dag-node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
             <span class="dag-node-role">Code Synthesis (Go/Rust)</span>
             <span class="dag-node-status">Standby</span>
           </div>
 
           <div class="dag-node" id="node-4">
-            <span class="dag-step-number">PHASE 04</span>
+            <div class="dag-header-flex">
+              <span class="dag-step-number">PHASE 04</span>
+              <svg class="dag-node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
             <span class="dag-node-role">Adversarial Red-Team Gate</span>
             <span class="dag-node-status">Standby</span>
           </div>
 
           <div class="dag-node" id="node-5">
-            <span class="dag-step-number">PHASE 05</span>
+            <div class="dag-header-flex">
+              <span class="dag-step-number">PHASE 05</span>
+              <svg class="dag-node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
             <span class="dag-node-role">Zero-Defect Deployment</span>
             <span class="dag-node-status">Standby</span>
           </div>
         </div>
 
-        <!-- Live Streaming Agent Activity Console -->
-        <div class="sim-console" id="sim-console-output">
-          <div class="log-line">
-            <span class="log-time">[14:30:00]</span>
-            <span class="log-agent">ORCHESTRATOR:</span>
-            <span class="log-msg">Gaussian Labs Agentic Core initialized. Select mission parameters and dispatch.</span>
+        <!-- Terminal Window Console -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="window-dot dot-red"></div>
+            <div class="window-dot dot-yellow"></div>
+            <div class="window-dot dot-green"></div>
+            <span class="terminal-title">gaussian-swarm-harness v2.4 (telemetry-daemon) ~ zsh</span>
+          </div>
+          <div class="sim-console" id="sim-console-output">
+            <div class="log-line">
+              <span class="log-time">[14:30:00]</span>
+              <span class="log-agent">ORCHESTRATOR:</span>
+              <span class="log-msg">Gaussian Labs Agentic Core initialized. Ready to execute autonomous engineering pipeline.</span>
+            </div>
           </div>
         </div>
 
         <div class="sim-control-bar">
-          <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
             <button class="btn btn-primary" id="btn-dispatch-swarm">
               ⚡ Execute Autonomous Swarm
             </button>
@@ -993,97 +1103,72 @@
     </div>
   </section>
 
-  <!-- Core Capabilities Section -->
-  <section class="section" id="pillars">
+  <!-- Editorial Bento Grid Showcase: Blending AI & Web Assets -->
+  <section class="section" id="infrastructure">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">Pillars of Agentic Engineering</div>
-        <h2 class="section-title">Beyond Toys: Production-Grade Autonomy</h2>
+        <div class="section-eyebrow">Enterprise Topology</div>
+        <h2 class="section-title">Engineered for Production Scale</h2>
         <p class="section-desc">
-          Single-agent prompts and raw API wrappers break under real-world ambiguity. We engineer the structural guarantees that make autonomous agents dependable for enterprise infrastructure.
+          From bare-metal GPU acceleration to zero-trust MCP tool orchestration, our architecture turns non-deterministic models into predictable engineering assets.
         </p>
       </div>
 
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+      <div class="bento-grid">
+        <!-- Card 1: Compute Core (8 col) -->
+        <div class="bento-card bento-col-8">
+          <div class="bento-img-wrap" style="height: 280px;">
+            <img src="./assets/probabilistic-core.jpg" alt="Autonomous AI Compute Core Lattice" loading="lazy">
           </div>
-          <h3 class="card-title">Swarm Consensus &amp; DAGs</h3>
-          <p class="card-text">
-            Specialized autonomous subagents running concurrent pipelines with exclusive file locks, shared memory scratchpads, and deterministic state transitions.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+          <div class="bento-content">
+            <span class="bento-tag">CORE INFRASTRUCTURE</span>
+            <h3 class="bento-title">High-Concurreny Agent Compute Lattice</h3>
+            <p class="bento-text">
+              Specialized orchestration nodes managing concurrent agent swarms with shared scratchpads, isolated git worktrees, and real-time state consensus.
+            </p>
           </div>
-          <h3 class="card-title">Adversarial Verification Gates</h3>
-          <p class="card-text">
-            Every line of code and architectural decision is challenged by independent Auditor, Critic, and Security subagents before any changes touch production.
-          </p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-            </svg>
+        <!-- Card 2: Datacenter (4 col - Curated Web Image) -->
+        <div class="bento-card bento-col-4">
+          <div class="bento-img-wrap" style="height: 280px;">
+            <img src="./assets/datacenter-hardware.jpg" alt="Enterprise Datacenter Hardware" loading="lazy">
           </div>
-          <h3 class="card-title">Self-Healing Execution Loops</h3>
-          <p class="card-text">
-            When tests fail or runtime panics emerge, agents isolate root causes via AST inspection and execute automated rollbacks, preventing infinite drift loops.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Architecture Deep Dive -->
-  <section class="section" id="architecture">
-    <div class="container">
-      <div class="arch-split">
-        <div class="arch-visual">
-          <img src="./assets/probabilistic-core.jpg" alt="Enterprise Agent Execution Lattice" width="1200" height="675" loading="lazy">
+          <div class="bento-content">
+            <span class="bento-tag">BARE-METAL RELIABILITY</span>
+            <h3 class="bento-title">Microsecond Tool Latency</h3>
+            <p class="bento-text">
+              Deployable directly on enterprise VPCs or dedicated bare-metal GPU clusters, guaranteeing zero external data egress.
+            </p>
+          </div>
         </div>
 
-        <div>
-          <div class="section-eyebrow">Harness Architecture</div>
-          <h2 class="section-title">The Production Agent Harness</h2>
-          <p class="section-desc">
-            We separate non-deterministic LLM cognition from deterministic execution environments. The result: software that writes, verifies, and ships software without human babysitting.
-          </p>
+        <!-- Card 3: Code Synthesis (4 col - Curated Web Image) -->
+        <div class="bento-card bento-col-4">
+          <div class="bento-img-wrap" style="height: 240px;">
+            <img src="./assets/code-synthesis.jpg" alt="AST Code Synthesis Interface" loading="lazy">
+          </div>
+          <div class="bento-content">
+            <span class="bento-tag">SYNTHESIS &amp; LINTING</span>
+            <h3 class="bento-title">AST-Verified Generation</h3>
+            <p class="bento-text">
+              Code is checked against tree-sitter parsers and strict typecheckers before execution, eliminating syntactic and runtime hallucinations.
+            </p>
+          </div>
+        </div>
 
-          <ul class="spec-list">
-            <li class="spec-item">
-              <div class="spec-bullet">01</div>
-              <div class="spec-content">
-                <h4>Model Context Protocol (MCP) Integration</h4>
-                <p>Native tool execution harnesses communicating via structured protocol standards across filesystem, cloud APIs, and diagnostic compilers.</p>
-              </div>
-            </li>
-
-            <li class="spec-item">
-              <div class="spec-bullet">02</div>
-              <div class="spec-content">
-                <h4>Unit-Economics &amp; Token Ceilings</h4>
-                <p>Strict token budgeting and intelligent model routing (e.g. Flash models for discovery, Pro models for architectural refactors) yielding 10x cost reduction.</p>
-              </div>
-            </li>
-
-            <li class="spec-item">
-              <div class="spec-bullet">03</div>
-              <div class="spec-content">
-                <h4>Epistemic Confidence Tracking</h4>
-                <p>Derived from our foundational probabilistic roots: agents measure uncertainty bounds and automatically summon human or peer consensus when entropy spikes.</p>
-              </div>
-            </li>
-          </ul>
+        <!-- Card 4: Adversarial Harness (8 col) -->
+        <div class="bento-card bento-col-8">
+          <div class="bento-img-wrap" style="height: 240px;">
+            <img src="./assets/hero-manifold.jpg" alt="Gaussian Uncertainty Bounds & Safety Envelopes" loading="lazy">
+          </div>
+          <div class="bento-content">
+            <span class="bento-tag">PROBABILISTIC FOUNDATIONS</span>
+            <h3 class="bento-title">Epistemic Uncertainty Bounds</h3>
+            <p class="bento-text">
+              Derived from our probabilistic foundations: agents continuously measure entropy drift and trigger human-in-the-loop consensus whenever decision variance spikes.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -1128,7 +1213,7 @@
   <section class="section" id="enterprise">
     <div class="container">
       <div class="partner-card">
-        <div class="hero-badge" style="margin-bottom: 1.25rem;">
+        <div class="hero-badge" style="margin-bottom: 1.5rem;">
           Design Partnerships Open
         </div>
         <h2 class="partner-title">Deploy Autonomous Engineering Into Your Pipeline</h2>
@@ -1137,7 +1222,7 @@
         </p>
 
         <div class="contact-action-bar">
-          <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Agentic%20Engineering%20Partnership" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Agentic%20Engineering%20Partnership" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1rem;">
             Initiate Enterprise Dialogue
           </a>
           
@@ -1159,7 +1244,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <p style="color: var(--text-main); font-weight: 600; font-family: var(--font-heading); margin-bottom: 0.25rem;">
+        <p style="color: var(--text-main); font-weight: 700; font-family: var(--font-heading); margin-bottom: 0.25rem;">
           Gaussian Labs
         </p>
         <p>Bleeding-edge agentic engineering startup.</p>
