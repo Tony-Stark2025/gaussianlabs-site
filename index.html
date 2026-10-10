@@ -3,44 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaussian Labs | Enterprise Infrastructure for Probabilistic AI</title>
-  <meta name="description" content="We build enterprise infrastructure to create economic value out of probabilism. Calibrated uncertainty quantification, Bayesian decision architectures, and mathematical reliability for mission-critical AI.">
-  <meta name="keywords" content="Gaussian Labs, Probabilistic AI, Enterprise AI, Uncertainty Quantification, Bayesian Machine Learning, Compound AI Systems, Gaussian Processes">
+  <title>Gaussian Labs | Bleeding-Edge Agentic Engineering Systems</title>
+  <meta name="description" content="Gaussian Labs builds bleeding-edge autonomous agentic engineering infrastructure. Enterprise multi-agent swarms, self-healing execution loops, and adversarial verification harnesses.">
+  <meta name="keywords" content="Gaussian Labs, Agentic Engineering, Autonomous AI Agents, Multi-Agent Swarms, Agent Harness, Enterprise AI, Model Context Protocol, Self-Healing Code">
   <meta name="author" content="Gaussian Labs">
   
   <!-- OpenGraph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gaussianlabs.dev/">
-  <meta property="og:title" content="Gaussian Labs | Enterprise Infrastructure for Probabilistic AI">
-  <meta property="og:description" content="We build enterprise infrastructure to create economic value out of probabilism.">
-  <meta property="og:image" content="./assets/hero-manifold.jpg">
+  <meta property="og:title" content="Gaussian Labs | Bleeding-Edge Agentic Engineering Systems">
+  <meta property="og:description" content="Engineering autonomous agent swarms that never hallucinate in production.">
+  <meta property="og:image" content="./assets/agentic-swarm-core.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Gaussian Labs | Enterprise Infrastructure for Probabilistic AI">
-  <meta name="twitter:description" content="We build enterprise infrastructure to create economic value out of probabilism.">
-  <meta name="twitter:image" content="./assets/hero-manifold.jpg">
+  <meta name="twitter:title" content="Gaussian Labs | Bleeding-Edge Agentic Engineering Systems">
+  <meta name="twitter:description" content="Engineering autonomous agent swarms that never hallucinate in production.">
+  <meta name="twitter:image" content="./assets/agentic-swarm-core.jpg">
 
-  <!-- Favicon (SVG Bell Curve) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='6' fill='%2307090e'/><path d='M4 24C9 24 10 8 16 8C22 8 23 24 28 24' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round'/></svg>">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='6' fill='%2306080d'/><path d='M6 16h4l3-8 6 16 3-8h4' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-base: #06080d;
-      --bg-surface: #0c101a;
-      --bg-surface-elevated: #131929;
-      --bg-surface-glass: rgba(12, 16, 26, 0.72);
+      --bg-base: #05070c;
+      --bg-surface: #0a0e17;
+      --bg-surface-elevated: #111726;
+      --bg-surface-glass: rgba(10, 14, 23, 0.75);
       
       --accent-cyan: #38bdf8;
-      --accent-cyan-glow: rgba(56, 189, 248, 0.28);
+      --accent-cyan-glow: rgba(56, 189, 248, 0.3);
       --accent-indigo: #6366f1;
-      --accent-violet: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
       
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-active: rgba(56, 189, 248, 0.4);
+      --border-active: rgba(56, 189, 248, 0.35);
       
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -74,16 +76,15 @@
     body {
       overflow-x: hidden;
       background: 
-        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 90% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 10% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 85% 35%, rgba(99, 102, 241, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 15% 65%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
         var(--bg-base);
       min-height: 100vh;
     }
 
-    /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -95,10 +96,10 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 1.25rem 0;
+      padding: 1.15rem 0;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(6, 8, 13, 0.75);
+      background: rgba(5, 7, 12, 0.78);
       border-bottom: 1px solid var(--border-subtle);
       transition: all 0.3s ease;
     }
@@ -118,20 +119,15 @@
     }
 
     .brand-mark {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(99, 102, 241, 0.2));
       border: 1px solid var(--border-active);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
-    }
-
-    .brand-mark svg {
-      width: 20px;
-      height: 20px;
     }
 
     .brand-name {
@@ -216,30 +212,30 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.35rem 0.9rem;
+      padding: 0.35rem 0.95rem;
       border-radius: var(--radius-full);
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid rgba(56, 189, 248, 0.25);
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--accent-cyan);
       margin-bottom: 1.75rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
     .hero-badge-pulse {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--accent-cyan);
-      box-shadow: 0 0 8px var(--accent-cyan);
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 0.35; transform: scale(0.8); }
     }
 
     .hero-title {
@@ -247,13 +243,13 @@
       font-size: clamp(2.4rem, 5.5vw, 4.4rem);
       font-weight: 800;
       line-height: 1.1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
       margin-bottom: 1.5rem;
-      max-width: 950px;
+      max-width: 960px;
     }
 
     .hero-title .gradient-text {
-      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 80%, #818cf8 100%);
+      background: linear-gradient(135deg, #ffffff 25%, #38bdf8 70%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -261,7 +257,7 @@
     .hero-subhead {
       font-size: clamp(1.1rem, 2vw, 1.35rem);
       color: var(--text-muted);
-      max-width: 780px;
+      max-width: 820px;
       line-height: 1.65;
       margin-bottom: 2.5rem;
       font-weight: 400;
@@ -272,7 +268,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 1.25rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
 
     /* Hero Visual Card */
@@ -293,7 +289,7 @@
       display: block;
       object-fit: cover;
       aspect-ratio: 16 / 9;
-      filter: saturate(1.15) contrast(1.05);
+      filter: saturate(1.1) contrast(1.05);
     }
 
     .hero-overlay-bar {
@@ -302,13 +298,13 @@
       left: 0;
       right: 0;
       padding: 1.5rem 2rem;
-      background: linear-gradient(to top, rgba(6, 8, 13, 0.95) 0%, rgba(6, 8, 13, 0.6) 70%, transparent 100%);
+      background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.6) 70%, transparent 100%);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .telemetry-chip {
@@ -337,7 +333,7 @@
 
     .section-eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--accent-cyan);
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -357,7 +353,7 @@
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-size: clamp(1.85rem, 3.5vw, 2.85rem);
       font-weight: 700;
       letter-spacing: -0.025em;
       line-height: 1.2;
@@ -367,163 +363,173 @@
     .section-desc {
       color: var(--text-muted);
       font-size: 1.1rem;
-      max-width: 680px;
+      max-width: 720px;
     }
 
-    /* Interactive Calibration Demo */
-    .demo-grid {
+    /* Signature Interactive Element: The Agentic Swarm Simulator */
+    .swarm-sim-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .sim-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .sim-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+    }
+
+    .task-selector-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .task-chip {
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .task-chip.active, .task-chip:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    /* DAG Pipeline Grid */
+    .dag-pipeline {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: stretch;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
     }
 
-    @media (max-width: 900px) {
-      .demo-grid {
+    @media (max-width: 990px) {
+      .dag-pipeline {
         grid-template-columns: 1fr;
       }
     }
 
-    .demo-canvas-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .canvas-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
-    }
-
-    .canvas-title {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .canvas-controls-status {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent-cyan);
-    }
-
-    #gaussian-canvas {
-      width: 100%;
-      height: 280px;
-      border-radius: var(--radius-md);
-      background: #04060a;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .canvas-sliders {
-      margin-top: 1.5rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .slider-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .slider-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    .slider-input {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.1);
-      outline: none;
-    }
-
-    .slider-input::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent-cyan);
-      cursor: pointer;
-      box-shadow: 0 0 10px var(--accent-cyan);
-    }
-
-    .demo-info-card {
+    .dag-node {
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
-    .mode-switch-group {
-      display: flex;
-      gap: 0.5rem;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.35rem;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border-subtle);
-      margin-bottom: 1.75rem;
+    .dag-node.active {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.05);
     }
 
-    .mode-btn {
-      flex: 1;
-      padding: 0.55rem 0.75rem;
-      border-radius: var(--radius-full);
-      background: transparent;
-      border: none;
+    .dag-node.completed {
+      border-color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.03);
+    }
+
+    .dag-step-number {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
       color: var(--text-dim);
-      font-size: 0.82rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
+    }
+
+    .dag-node-role {
       font-family: var(--font-heading);
-    }
-
-    .mode-btn.active {
-      background: var(--bg-surface);
+      font-weight: 700;
+      font-size: 0.92rem;
       color: var(--text-main);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border-active);
     }
 
-    .telemetry-readout {
-      background: #05080e;
+    .dag-node-status {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .dag-node.active .dag-node-status {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .dag-node.completed .dag-node-status {
+      color: var(--accent-emerald);
+    }
+
+    /* Live Terminal Console */
+    .sim-console {
+      background: #020408;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 1.25rem;
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
+      min-height: 180px;
+      max-height: 240px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
     }
 
-    .telemetry-row {
+    .log-line {
+      display: flex;
+      gap: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .log-time { color: var(--text-dim); }
+    .log-agent { color: var(--accent-cyan); font-weight: 600; }
+    .log-msg { color: var(--text-main); }
+    .log-msg.highlight { color: var(--accent-emerald); }
+    .log-msg.warn { color: var(--accent-amber); }
+
+    .sim-control-bar {
+      margin-top: 1.75rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-
-    .telemetry-row .k { color: var(--text-dim); }
-    .telemetry-row .v { color: var(--accent-cyan); font-weight: 600; }
-    .telemetry-row .v.alert { color: #f43f5e; }
 
     /* Pillars Cards */
     .cards-grid {
@@ -676,7 +682,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      margin-top: 3rem;
+      margin-top: 3.5rem;
     }
 
     .comp-table {
@@ -716,12 +722,12 @@
       border-bottom: none;
     }
 
-    /* Contact / Partner CTA */
+    /* Partner & Inquiries Section */
     .partner-card {
-      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, rgba(12, 16, 26, 0.9) 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, rgba(10, 14, 23, 0.9) 70%);
       border: 1px solid var(--border-active);
       border-radius: var(--radius-lg);
-      padding: 4rem 2.5rem;
+      padding: 4.5rem 2.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -739,7 +745,7 @@
     .partner-desc {
       color: var(--text-muted);
       font-size: 1.15rem;
-      max-width: 640px;
+      max-width: 660px;
       margin: 0 auto 2.5rem auto;
       line-height: 1.6;
     }
@@ -812,7 +818,6 @@
       color: var(--text-muted);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -837,22 +842,22 @@
     <div class="container nav-inner">
       <a href="#" class="brand">
         <div class="brand-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <path d="M2 18C6 18 8 6 12 6C16 6 18 18 22 18" stroke="#38bdf8"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14h3l3-7 4 14 3-7h3" stroke="#38bdf8"/>
           </svg>
         </div>
         <span class="brand-name">Gaussian<span>Labs</span></span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#thesis" class="nav-link">Thesis</a></li>
-        <li><a href="#interactive" class="nav-link">Calibration Engine</a></li>
-        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#swarm-orchestrator" class="nav-link">Swarm Engine</a></li>
+        <li><a href="#pillars" class="nav-link">Capabilities</a></li>
+        <li><a href="#architecture" class="nav-link">Harness Architecture</a></li>
         <li><a href="#enterprise" class="nav-link">Partnerships</a></li>
       </ul>
 
-      <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20Inquiry" class="btn btn-primary">
-        Enterprise Inquiry
+      <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Agentic%20Engineering%20Dialogue" class="btn btn-primary">
+        Deploy Swarm
       </a>
     </div>
   </nav>
@@ -862,56 +867,140 @@
     <div class="container">
       <div class="hero-badge">
         <span class="hero-badge-pulse"></span>
-        Infrastructure for Commercial Probabilism
+        Bleeding-Edge Agentic Engineering Systems
       </div>
 
       <h1 class="hero-title">
-        Extracting Commercial Value Out of <span class="gradient-text">Probabilistic Models.</span>
+        Engineering Autonomous Agent Swarms That <span class="gradient-text">Never Hallucinate in Production.</span>
       </h1>
 
       <p class="hero-subhead">
-        Point-prediction models and deterministic LLMs fail silently under real-world entropy. 
-        Gaussian Labs builds high-throughput enterprise infrastructure engineered to quantify uncertainty, compute rigorous Bayesian bounds, and turn probability distributions into economic alpha.
+        Raw foundation models are volatile, stochastic, and uncalibrated. Gaussian Labs engineers high-assurance agentic harnesses, multi-agent execution DAGs, and self-healing verification loops that turn autonomous AI into deterministic enterprise software.
       </p>
 
       <div class="hero-actions">
-        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Partnership%20-%20Gaussian%20Labs" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
-          Initiate Enterprise Dialogue
+        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20-%20Gaussian%20Labs" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+          Initiate Design Partnership
         </a>
-        <a href="#interactive" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
-          View Calibration Engine ↓
+        <a href="#swarm-orchestrator" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+          Inspect Swarm Simulator ↓
         </a>
       </div>
 
-      <!-- Hero Visual Card with Generated Asset -->
+      <!-- Hero Visual Card: Agentic Swarm Matrix -->
       <div class="hero-visual">
-        <img src="./assets/hero-manifold.jpg" alt="High-dimensional Gaussian manifold representing uncertainty quantification" width="1200" height="675" loading="eager" fetchpriority="high">
+        <img src="./assets/agentic-swarm-core.jpg" alt="Autonomous Agent Swarm Engineering HUD and DAG Architecture" width="1200" height="675" loading="eager" fetchpriority="high">
         <div class="hero-overlay-bar">
           <div class="telemetry-chip">
-            <span>KERNEL:</span>
-            <span class="telemetry-val">Gaussian RBF + Matérn 5/2</span>
+            <span>HARNESS PROTOCOL:</span>
+            <span class="telemetry-val">Gaussian Multi-Agent DAG v2.4</span>
           </div>
           <div class="telemetry-chip">
-            <span>CALIBRATION ERROR (ECE):</span>
-            <span class="telemetry-val">&lt; 0.008</span>
+            <span>TOOL DISPATCH (MCP):</span>
+            <span class="telemetry-val">Sandboxed &amp; Zero-Trust</span>
           </div>
           <div class="telemetry-chip">
-            <span>DOMAIN:</span>
-            <span class="telemetry-val">gaussianlabs.dev</span>
+            <span>VERIFICATION GATE:</span>
+            <span class="telemetry-val">100% Deterministic Pass</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Thesis Section -->
-  <section class="section" id="thesis">
+  <!-- Signature Interactive Component: Live Agentic Swarm Simulator -->
+  <section class="section" id="swarm-orchestrator">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">The Core Thesis</div>
-        <h2 class="section-title">Why Deterministic AI Collapses at Scale</h2>
+        <div class="section-eyebrow">Interactive Swarm Harness</div>
+        <h2 class="section-title">The Autonomous Execution Engine</h2>
         <p class="section-desc">
-          When enterprises deploy foundation models into high-stakes production, a 99% confident wrong answer costs millions. Modern enterprise AI requires mathematical self-awareness.
+          Witness our multi-agent architecture in action. Select an enterprise mission and trigger the swarm. Watch specialized subagents analyze, synthesize, cross-audit, and verify production code with automated self-healing.
+        </p>
+      </div>
+
+      <div class="swarm-sim-card">
+        <div class="sim-top-bar">
+          <div class="sim-status">
+            <span class="status-indicator"></span>
+            <span id="sim-status-text">STATUS: IDLE // READY FOR DISPATCH</span>
+          </div>
+
+          <div class="task-selector-group">
+            <button class="task-chip active" data-task="refactor">Microservice Refactor</button>
+            <button class="task-chip" data-task="security">Adversarial AppSec Audit</button>
+            <button class="task-chip" data-task="consensus">Distributed Consensus Engine</button>
+          </div>
+        </div>
+
+        <!-- 5-Stage DAG Visualization -->
+        <div class="dag-pipeline" id="dag-container">
+          <div class="dag-node" id="node-1">
+            <span class="dag-step-number">PHASE 01</span>
+            <span class="dag-node-role">Scoping &amp; AST Analysis</span>
+            <span class="dag-node-status">Standby</span>
+          </div>
+
+          <div class="dag-node" id="node-2">
+            <span class="dag-step-number">PHASE 02</span>
+            <span class="dag-node-role">Swarm Specialization</span>
+            <span class="dag-node-status">Standby</span>
+          </div>
+
+          <div class="dag-node" id="node-3">
+            <span class="dag-step-number">PHASE 03</span>
+            <span class="dag-node-role">Code Synthesis (Go/Rust)</span>
+            <span class="dag-node-status">Standby</span>
+          </div>
+
+          <div class="dag-node" id="node-4">
+            <span class="dag-step-number">PHASE 04</span>
+            <span class="dag-node-role">Adversarial Red-Team Gate</span>
+            <span class="dag-node-status">Standby</span>
+          </div>
+
+          <div class="dag-node" id="node-5">
+            <span class="dag-step-number">PHASE 05</span>
+            <span class="dag-node-role">Zero-Defect Deployment</span>
+            <span class="dag-node-status">Standby</span>
+          </div>
+        </div>
+
+        <!-- Live Streaming Agent Activity Console -->
+        <div class="sim-console" id="sim-console-output">
+          <div class="log-line">
+            <span class="log-time">[14:30:00]</span>
+            <span class="log-agent">ORCHESTRATOR:</span>
+            <span class="log-msg">Gaussian Labs Agentic Core initialized. Select mission parameters and dispatch.</span>
+          </div>
+        </div>
+
+        <div class="sim-control-bar">
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <button class="btn btn-primary" id="btn-dispatch-swarm">
+              ⚡ Execute Autonomous Swarm
+            </button>
+            <button class="btn btn-secondary" id="btn-inject-fault">
+              Inject Anomaly &amp; Test Rollback
+            </button>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+            ACTIVE HARNESS: <span style="color: var(--accent-cyan); font-weight: 600;">GAUSSIAN-DAG-STRICT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities Section -->
+  <section class="section" id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Pillars of Agentic Engineering</div>
+        <h2 class="section-title">Beyond Toys: Production-Grade Autonomy</h2>
+        <p class="section-desc">
+          Single-agent prompts and raw API wrappers break under real-world ambiguity. We engineer the structural guarantees that make autonomous agents dependable for enterprise infrastructure.
         </p>
       </div>
 
@@ -919,110 +1008,37 @@
         <div class="card">
           <div class="card-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3 class="card-title">Commercial Risk Arbitrage</h3>
+          <h3 class="card-title">Swarm Consensus &amp; DAGs</h3>
           <p class="card-text">
-            Traditional AI minimizes average loss across benchmark datasets. Gaussian Labs computes tail risk and posterior density, turning calibrated volatility into structured economic opportunity.
+            Specialized autonomous subagents running concurrent pipelines with exclusive file locks, shared memory scratchpads, and deterministic state transitions.
           </p>
         </div>
 
         <div class="card">
           <div class="card-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <h3 class="card-title">Compound Compound Reliability</h3>
+          <h3 class="card-title">Adversarial Verification Gates</h3>
           <p class="card-text">
-            Multi-agent execution graphs fail when uncalibrated uncertainties multiply exponentially. Our Bayesian routing guarantees provable safety envelopes across compound agent architectures.
+            Every line of code and architectural decision is challenged by independent Auditor, Critic, and Security subagents before any changes touch production.
           </p>
         </div>
 
         <div class="card">
           <div class="card-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
           </div>
-          <h3 class="card-title">Hardware-Accelerated Inference</h3>
+          <h3 class="card-title">Self-Healing Execution Loops</h3>
           <p class="card-text">
-            Variational inference and Gaussian process approximation designed for ultra-low latency modern GPU accelerators, scaling from real-time algorithmic execution to enterprise telemetry.
+            When tests fail or runtime panics emerge, agents isolate root causes via AST inspection and execute automated rollbacks, preventing infinite drift loops.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Signature Section: Gaussian Calibration Engine -->
-  <section class="section" id="interactive">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Interactive Engine</div>
-        <h2 class="section-title">The Gaussian Calibration Explorer</h2>
-        <p class="section-desc">
-          Compare standard deterministic point predictions against Gaussian Labs' calibrated probability density function. Adjust the variance and entropy sliders to inspect live uncertainty bounds.
-        </p>
-      </div>
-
-      <div class="demo-grid">
-        <div class="demo-canvas-card">
-          <div class="canvas-header">
-            <span class="canvas-title">Probability Density Function \( p(y \mid x) \)</span>
-            <span class="canvas-controls-status" id="entropy-badge">Entropy: Calibrated</span>
-          </div>
-
-          <canvas id="gaussian-canvas" width="600" height="280"></canvas>
-
-          <div class="canvas-sliders">
-            <div class="slider-group">
-              <div class="slider-label">
-                <span>Mean Prediction (\(\mu\))</span>
-                <span id="mean-val">0.00</span>
-              </div>
-              <input type="range" class="slider-input" id="mean-slider" min="-3" max="3" step="0.1" value="0">
-            </div>
-
-            <div class="slider-group">
-              <div class="slider-label">
-                <span>Variance / Uncertainty (\(\sigma\))</span>
-                <span id="sigma-val">0.90</span>
-              </div>
-              <input type="range" class="slider-input" id="sigma-slider" min="0.2" max="2.5" step="0.05" value="0.9">
-            </div>
-          </div>
-        </div>
-
-        <div class="demo-info-card">
-          <div>
-            <div class="mode-switch-group">
-              <button class="mode-btn active" id="btn-mode-gaussian">Gaussian Labs Architecture</button>
-              <button class="mode-btn" id="btn-mode-deterministic">Standard Deterministic LLM</button>
-            </div>
-
-            <h3 id="mode-title" style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.75rem;">
-              Calibrated Epistemic Distribution
-            </h3>
-            <p id="mode-desc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-              Outputs a continuous probability manifold with 95% confidence intervals (\(\mu \pm 1.96\sigma\)). Mission-critical enterprise logic triggers fallback or hedging when variance breaches safety tolerances.
-            </p>
-          </div>
-
-          <div class="telemetry-readout">
-            <div class="telemetry-row">
-              <span class="k">Observed Tail Risk (\(\alpha = 0.05\)):</span>
-              <span class="v" id="tail-risk-val">Bounded (\(\pm 1.76\))</span>
-            </div>
-            <div class="telemetry-row">
-              <span class="k">Decision Safe Threshold:</span>
-              <span class="v" id="decision-status">OPTIMAL EXECUTION</span>
-            </div>
-            <div class="telemetry-row">
-              <span class="k">Hallucination / Out-Of-Distribution Risk:</span>
-              <span class="v" id="ood-risk">0.8% (Suppressed)</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1033,38 +1049,38 @@
     <div class="container">
       <div class="arch-split">
         <div class="arch-visual">
-          <img src="./assets/probabilistic-core.jpg" alt="Enterprise AI Probabilistic Compute Core" width="1200" height="675" loading="lazy">
+          <img src="./assets/probabilistic-core.jpg" alt="Enterprise Agent Execution Lattice" width="1200" height="675" loading="lazy">
         </div>
 
         <div>
-          <div class="section-eyebrow">Enterprise Infrastructure</div>
-          <h2 class="section-title">Built for Production Scale</h2>
+          <div class="section-eyebrow">Harness Architecture</div>
+          <h2 class="section-title">The Production Agent Harness</h2>
           <p class="section-desc">
-            We are building the systems layer that translates theoretical probabilistic machine learning into low-latency, mission-critical enterprise software.
+            We separate non-deterministic LLM cognition from deterministic execution environments. The result: software that writes, verifies, and ships software without human babysitting.
           </p>
 
           <ul class="spec-list">
             <li class="spec-item">
               <div class="spec-bullet">01</div>
               <div class="spec-content">
-                <h4>Bayesian Decision Routers</h4>
-                <p>Dynamically routes compound agent queries based on real-time epistemic uncertainty metrics rather than raw heuristic scores.</p>
+                <h4>Model Context Protocol (MCP) Integration</h4>
+                <p>Native tool execution harnesses communicating via structured protocol standards across filesystem, cloud APIs, and diagnostic compilers.</p>
               </div>
             </li>
 
             <li class="spec-item">
               <div class="spec-bullet">02</div>
               <div class="spec-content">
-                <h4>Continuous Distribution Telemetry</h4>
-                <p>Auditable, mathematically grounded logs that quantify how confidence shifts under enterprise data distribution drift.</p>
+                <h4>Unit-Economics &amp; Token Ceilings</h4>
+                <p>Strict token budgeting and intelligent model routing (e.g. Flash models for discovery, Pro models for architectural refactors) yielding 10x cost reduction.</p>
               </div>
             </li>
 
             <li class="spec-item">
               <div class="spec-bullet">03</div>
               <div class="spec-content">
-                <h4>Zero-Cold-Start Distribution Kernels</h4>
-                <p>Optimized tensor routines executing variational Bayesian updates in microseconds alongside high-throughput inference.</p>
+                <h4>Epistemic Confidence Tracking</h4>
+                <p>Derived from our foundational probabilistic roots: agents measure uncertainty bounds and automatically summon human or peer consensus when entropy spikes.</p>
               </div>
             </li>
           </ul>
@@ -1076,31 +1092,31 @@
         <table class="comp-table">
           <thead>
             <tr>
-              <th>Evaluation Vector</th>
-              <th>Deterministic Enterprise AI</th>
-              <th class="highlight">Gaussian Labs Architecture</th>
+              <th>Engineering Vector</th>
+              <th>Naive Scripting / Single Agent</th>
+              <th class="highlight">Gaussian Labs Agentic Architecture</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Uncertainty Representation</strong></td>
-              <td>Single scalar / softmax point estimate</td>
-              <td class="highlight">Continuous posterior distribution over parameters</td>
+              <td><strong>Execution Reliability</strong></td>
+              <td>Unchecked hallucination cascades</td>
+              <td class="highlight">Multi-agent verification gates &amp; AST linting</td>
             </tr>
             <tr>
-              <td><strong>Out-of-Distribution Behavior</strong></td>
-              <td>Silent hallucinations with high confidence</td>
-              <td class="highlight">Exponential variance expansion (immediate flag)</td>
+              <td><strong>Tool Orchestration</strong></td>
+              <td>Brittle unstructured bash commands</td>
+              <td class="highlight">Strict typed schemas (MCP) &amp; sandboxed worktrees</td>
             </tr>
             <tr>
-              <td><strong>Enterprise Decision Layer</strong></td>
-              <td>Brittle heuristic if-else chains</td>
-              <td class="highlight">Expected utility optimization under risk bounds</td>
+              <td><strong>Error Recovery</strong></td>
+              <td>Infinite apology loops upon test failure</td>
+              <td class="highlight">Deterministic git rollbacks &amp; targeted root-cause repair</td>
             </tr>
             <tr>
-              <td><strong>Compound AI Cascades</strong></td>
-              <td>Multiplies failure probabilities</td>
-              <td class="highlight">Provable safety margins across DAG nodes</td>
+              <td><strong>Enterprise Security</strong></td>
+              <td>Unbounded command execution</td>
+              <td class="highlight">Zero-trust CISO AppSec verification before commit</td>
             </tr>
           </tbody>
         </table>
@@ -1113,15 +1129,15 @@
     <div class="container">
       <div class="partner-card">
         <div class="hero-badge" style="margin-bottom: 1.25rem;">
-          Early Access & Design Partners
+          Design Partnerships Open
         </div>
-        <h2 class="partner-title">Shape the Future of Enterprise AI</h2>
+        <h2 class="partner-title">Deploy Autonomous Engineering Into Your Pipeline</h2>
         <p class="partner-desc">
-          We are partnering with select enterprise engineering teams, quantitative firms, and mission-critical platform leaders to pilot our probabilistic infrastructure.
+          We are currently partnering with forward-thinking CTOs, VP of Engineering leaders, and frontier AI teams to deploy our bleeding-edge agentic systems.
         </p>
 
         <div class="contact-action-bar">
-          <a href="mailto:bright@gaussianlabs.dev?subject=Gaussian%20Labs%20Enterprise%20Design%20Partner" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Agentic%20Engineering%20Partnership" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
             Initiate Enterprise Dialogue
           </a>
           
@@ -1146,7 +1162,7 @@
         <p style="color: var(--text-main); font-weight: 600; font-family: var(--font-heading); margin-bottom: 0.25rem;">
           Gaussian Labs
         </p>
-        <p>Infrastructure to create economic value out of probabilism.</p>
+        <p>Bleeding-edge agentic engineering startup.</p>
       </div>
 
       <ul class="footer-links">
@@ -1161,227 +1177,140 @@
     </div>
   </footer>
 
-  <!-- Script: Interactive Gaussian Curve Visualizer -->
+  <!-- Script: Live Interactive Swarm Harness Simulator -->
   <script>
     (function () {
-      const canvas = document.getElementById('gaussian-canvas');
-      const ctx = canvas.getContext('2d');
-      const meanSlider = document.getElementById('mean-slider');
-      const sigmaSlider = document.getElementById('sigma-slider');
-      const meanVal = document.getElementById('mean-val');
-      const sigmaVal = document.getElementById('sigma-val');
-      const entropyBadge = document.getElementById('entropy-badge');
-      const btnGaussian = document.getElementById('btn-mode-gaussian');
-      const btnDeterministic = document.getElementById('btn-mode-deterministic');
-      const modeTitle = document.getElementById('mode-title');
-      const modeDesc = document.getElementById('mode-desc');
-      const tailRiskVal = document.getElementById('tail-risk-val');
-      const decisionStatus = document.getElementById('decision-status');
-      const oodRisk = document.getElementById('ood-risk');
+      const consoleOutput = document.getElementById('sim-console-output');
+      const statusText = document.getElementById('sim-status-text');
+      const btnDispatch = document.getElementById('btn-dispatch-swarm');
+      const btnInjectFault = document.getElementById('btn-inject-fault');
+      const taskChips = document.querySelectorAll('.task-chip');
+      const nodes = [
+        document.getElementById('node-1'),
+        document.getElementById('node-2'),
+        document.getElementById('node-3'),
+        document.getElementById('node-4'),
+        document.getElementById('node-5')
+      ];
 
-      let mode = 'gaussian'; // 'gaussian' or 'deterministic'
+      let isRunning = false;
+      let selectedTask = 'refactor';
 
-      function gaussianPDF(x, mean, sigma) {
-        const factor = 1 / (sigma * Math.sqrt(2 * Math.PI));
-        const exponent = -0.5 * Math.pow((x - mean) / sigma, 2);
-        return factor * Math.exp(exponent);
-      }
-
-      function resizeCanvas() {
-        const dpr = window.devicePixelRatio || 1;
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        ctx.resetTransform();
-        ctx.scale(dpr, dpr);
-        draw();
-      }
-
-      window.addEventListener('resize', resizeCanvas);
-
-      function draw() {
-        const w = canvas.getBoundingClientRect().width;
-        const h = canvas.getBoundingClientRect().height;
-        ctx.clearRect(0, 0, w, h);
-
-        const mean = parseFloat(meanSlider.value);
-        const sigma = parseFloat(sigmaSlider.value);
-
-        // Grid lines
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-        ctx.lineWidth = 1;
-        for (let x = 0; x < w; x += 40) {
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, h);
-          ctx.stroke();
+      const taskScenarios = {
+        refactor: {
+          name: "Microservice Refactor",
+          steps: [
+            { node: 0, agent: "PLANNER", msg: "Scanning AST across 42 microservice files. Identifying circular dependencies.", status: "AST Analyzed" },
+            { node: 1, agent: "SWARM_ORCHESTRATOR", msg: "Spawning 4 subagents: Architect-1, Synthesizer-Go, AstLinter, AppSec.", status: "4 Subagents Live" },
+            { node: 2, agent: "SYNTHESIZER_GO", msg: "Refactoring gRPC service interface. Generating non-blocking concurrent handlers.", status: "Code Synthesized" },
+            { node: 3, agent: "APPSEC_AUDITOR", msg: "Adversarial verification triggered: Zero SSRF, least-privilege token check PASSED.", status: "Audits Passed" },
+            { node: 4, agent: "DEPLOYER", msg: "Zero-defect container build verified. Pull request auto-merged into staging.", status: "Deployed (Zero-Drift)" }
+          ]
+        },
+        security: {
+          name: "Adversarial AppSec Audit",
+          steps: [
+            { node: 0, agent: "THREAT_MODELER", msg: "Parsing dependency tree and CVE database. Discovered unauthenticated endpoint vulnerability.", status: "Threat Scoped" },
+            { node: 1, agent: "RED_TEAM_LEAD", msg: "Synthesizing adversarial exploit payload to verify attack vector reproduction.", status: "Vector Verified" },
+            { node: 2, agent: "PATCH_ENGINEER", msg: "Generating runtime cryptographic signature validation & rate-limiting middleware.", status: "Patch Synthesized" },
+            { node: 3, agent: "CRITIC_AGENT", msg: "Verifying regression bounds: 100/100 integration tests pass. Zero performance regression.", status: "Gate Passed" },
+            { node: 4, agent: "SECURITY_CISO", msg: "Cryptographic audit report sealed. Patch hot-reloaded to production lattice.", status: "Production Secured" }
+          ]
+        },
+        consensus: {
+          name: "Distributed Consensus Engine",
+          steps: [
+            { node: 0, agent: "DISTRIBUTED_SYS", msg: "Specifying Raft log replication state machine with Byzantine fault bounds.", status: "TLA+ Verified" },
+            { node: 1, agent: "SWARM_LEAD", msg: "Partitioning consensus state engine across high-performance Rust nodes.", status: "Topology Active" },
+            { node: 2, agent: "RUST_SYNTHESIZER", msg: "Generating lock-free memory ring buffers and epoll event loops.", status: "Compiled" },
+            { node: 3, agent: "CHAOS_VERIFIER", msg: "Simulating 40% network packet drop & leader node crashes: State recovers in 4ms.", status: "Fault Resilient" },
+            { node: 4, agent: "CONSENSUS_CORE", msg: "All invariants verified. Distributed consensus engine deployed to production.", status: "Consensus Active" }
+          ]
         }
-        for (let y = 0; y < h; y += 40) {
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(w, y);
-          ctx.stroke();
-        }
+      };
 
-        const xMin = -4;
-        const xMax = 4;
-        const baselineY = h - 35;
-
-        // X-Axis baseline
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-        ctx.beginPath();
-        ctx.moveTo(20, baselineY);
-        ctx.lineTo(w - 20, baselineY);
-        ctx.stroke();
-
-        function mapX(val) {
-          return 20 + ((val - xMin) / (xMax - xMin)) * (w - 40);
-        }
-
-        if (mode === 'gaussian') {
-          // Shaded confidence interval (-1.96 sigma to +1.96 sigma)
-          const ciLow = mean - 1.96 * sigma;
-          const ciHigh = mean + 1.96 * sigma;
-
-          ctx.beginPath();
-          let started = false;
-          for (let val = Math.max(xMin, ciLow); val <= Math.min(xMax, ciHigh); val += 0.05) {
-            const px = mapX(val);
-            const pdf = gaussianPDF(val, mean, sigma);
-            const py = baselineY - (pdf * (h * 0.7));
-            if (!started) {
-              ctx.moveTo(px, baselineY);
-              ctx.lineTo(px, py);
-              started = true;
-            } else {
-              ctx.lineTo(px, py);
-            }
-          }
-          if (started) {
-            ctx.lineTo(mapX(Math.min(xMax, ciHigh)), baselineY);
-            ctx.closePath();
-            const gradFill = ctx.createLinearGradient(0, 0, 0, baselineY);
-            gradFill.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
-            gradFill.addColorStop(1, 'rgba(56, 189, 248, 0.02)');
-            ctx.fillStyle = gradFill;
-            ctx.fill();
-          }
-
-          // Gaussian Bell Curve Line
-          ctx.beginPath();
-          for (let val = xMin; val <= xMax; val += 0.05) {
-            const px = mapX(val);
-            const pdf = gaussianPDF(val, mean, sigma);
-            const py = baselineY - (pdf * (h * 0.7));
-            if (val === xMin) ctx.moveTo(px, py);
-            else ctx.lineTo(px, py);
-          }
-          ctx.strokeStyle = '#38bdf8';
-          ctx.lineWidth = 2.5;
-          ctx.shadowColor = '#38bdf8';
-          ctx.shadowBlur = 12;
-          ctx.stroke();
-          ctx.shadowBlur = 0;
-
-          // Mean center line
-          const meanX = mapX(mean);
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-          ctx.setLineDash([4, 4]);
-          ctx.beginPath();
-          ctx.moveTo(meanX, baselineY);
-          ctx.lineTo(meanX, 20);
-          ctx.stroke();
-          ctx.setLineDash([]);
-
-          // Indicator labels
-          ctx.fillStyle = '#94a3b8';
-          ctx.font = '11px "JetBrains Mono", monospace';
-          ctx.fillText(`μ = ${mean.toFixed(2)}`, meanX - 20, 20);
-          ctx.fillText(`-1.96σ`, mapX(ciLow) - 15, baselineY + 20);
-          ctx.fillText(`+1.96σ`, mapX(ciHigh) - 15, baselineY + 20);
-
-        } else {
-          // Deterministic spike (Dirac delta approximation)
-          const meanX = mapX(mean);
-
-          ctx.beginPath();
-          ctx.moveTo(meanX, baselineY);
-          ctx.lineTo(meanX, 30);
-          ctx.strokeStyle = '#f43f5e';
-          ctx.lineWidth = 3;
-          ctx.shadowColor = '#f43f5e';
-          ctx.shadowBlur = 15;
-          ctx.stroke();
-          ctx.shadowBlur = 0;
-
-          // Pulse dot at top
-          ctx.beginPath();
-          ctx.arc(meanX, 30, 6, 0, Math.PI * 2);
-          ctx.fillStyle = '#f43f5e';
-          ctx.fill();
-
-          ctx.fillStyle = '#f43f5e';
-          ctx.font = '11px "JetBrains Mono", monospace';
-          ctx.fillText('Point Estimate: P = 1.0 (Uncalibrated)', Math.max(10, meanX - 80), 20);
-        }
-      }
-
-      function updateReadout() {
-        const mean = parseFloat(meanSlider.value);
-        const sigma = parseFloat(sigmaSlider.value);
-        meanVal.textContent = mean.toFixed(2);
-        sigmaVal.textContent = sigma.toFixed(2);
-
-        if (mode === 'gaussian') {
-          const bound = (1.96 * sigma).toFixed(2);
-          tailRiskVal.textContent = `Bounded (±${bound})`;
-          tailRiskVal.className = 'v';
-          
-          if (sigma > 1.8) {
-            decisionStatus.textContent = 'HEDGE / FALLBACK TRIGGERED';
-            decisionStatus.className = 'v alert';
-            entropyBadge.textContent = 'High Epistemic Entropy';
-            oodRisk.textContent = 'Distribution Shift Detected';
-            oodRisk.className = 'v alert';
-          } else {
-            decisionStatus.textContent = 'OPTIMAL EXECUTION';
-            decisionStatus.className = 'v';
-            entropyBadge.textContent = 'Calibrated Confidence';
-            oodRisk.textContent = `${(sigma * 1.5).toFixed(1)}% (Suppressed)`;
-            oodRisk.className = 'v';
-          }
-        } else {
-          tailRiskVal.textContent = 'Unquantified (Blind)';
-          tailRiskVal.className = 'v alert';
-          decisionStatus.textContent = 'UNREGULATED POINT RISK';
-          decisionStatus.className = 'v alert';
-          entropyBadge.textContent = 'Zero Variance Feedback';
-          oodRisk.textContent = 'Critical Failure Zone';
-          oodRisk.className = 'v alert';
-        }
-
-        draw();
-      }
-
-      meanSlider.addEventListener('input', updateReadout);
-      sigmaSlider.addEventListener('input', updateReadout);
-
-      btnGaussian.addEventListener('click', () => {
-        mode = 'gaussian';
-        btnGaussian.classList.add('active');
-        btnDeterministic.classList.remove('active');
-        modeTitle.textContent = 'Calibrated Epistemic Distribution';
-        modeDesc.textContent = 'Outputs a continuous probability manifold with 95% confidence intervals (μ ± 1.96σ). Mission-critical enterprise logic triggers fallback or hedging when variance breaches safety tolerances.';
-        updateReadout();
+      taskChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          if (isRunning) return;
+          taskChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          selectedTask = chip.getAttribute('data-task');
+          logLine("SYSTEM", `Active mission switched to: ${taskScenarios[selectedTask].name}`);
+        });
       });
 
-      btnDeterministic.addEventListener('click', () => {
-        mode = 'deterministic';
-        btnDeterministic.classList.add('active');
-        btnGaussian.classList.remove('active');
-        modeTitle.textContent = 'Uncalibrated Deterministic Output';
-        modeDesc.textContent = 'Outputs an overconfident point estimate without uncertainty bounds. When out-of-distribution events occur, the system fails silently without triggering enterprise risk hedges.';
-        updateReadout();
+      function logLine(agent, text, highlightClass) {
+        const time = new Date().toTimeString().split(' ')[0];
+        const line = document.createElement('div');
+        line.className = 'log-line';
+        line.innerHTML = `
+          <span class="log-time">[${time}]</span>
+          <span class="log-agent">${agent}:</span>
+          <span class="log-msg ${highlightClass || ''}">${text}</span>
+        `;
+        consoleOutput.appendChild(line);
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      }
+
+      function resetNodes() {
+        nodes.forEach(n => {
+          n.className = 'dag-node';
+          n.querySelector('.dag-node-status').textContent = 'Standby';
+        });
+      }
+
+      function runSwarm() {
+        if (isRunning) return;
+        isRunning = true;
+        btnDispatch.disabled = true;
+        btnDispatch.style.opacity = '0.6';
+        statusText.textContent = "STATUS: SWARM ACTIVE // PIPELINE EXECUTING";
+        resetNodes();
+
+        const scenario = taskScenarios[selectedTask];
+        logLine("ORCHESTRATOR", `Dispatching autonomous multi-agent swarm for [${scenario.name}]...`, "highlight");
+
+        let stepIndex = 0;
+
+        function nextStep() {
+          if (stepIndex > 0) {
+            const prev = nodes[stepIndex - 1];
+            prev.classList.remove('active');
+            prev.classList.add('completed');
+            prev.querySelector('.dag-node-status').textContent = scenario.steps[stepIndex - 1].status;
+          }
+
+          if (stepIndex < scenario.steps.length) {
+            const current = scenario.steps[stepIndex];
+            const node = nodes[current.node];
+            node.classList.add('active');
+            node.querySelector('.dag-node-status').textContent = 'Executing...';
+            logLine(current.agent, current.msg);
+
+            stepIndex++;
+            setTimeout(nextStep, 1100);
+          } else {
+            statusText.textContent = "STATUS: MISSION COMPLETED // VERIFIED WITH ZERO-DRIFT";
+            logLine("ORCHESTRATOR", "✓ Mission successfully completed with 100% deterministic gate verification.", "highlight");
+            btnDispatch.disabled = false;
+            btnDispatch.style.opacity = '1';
+            isRunning = false;
+          }
+        }
+
+        setTimeout(nextStep, 500);
+      }
+
+      btnDispatch.addEventListener('click', runSwarm);
+
+      btnInjectFault.addEventListener('click', () => {
+        logLine("CHAOS_INJECTOR", "⚠ Anomaly Injected: Simulated corrupted AST node & timeout exception.", "warn");
+        setTimeout(() => {
+          logLine("HARNESS_WATCHDOG", "Self-healing trigger activated. Rolling back to last verified git tree ef89a1c.", "highlight");
+        }, 600);
+        setTimeout(() => {
+          logLine("PATCH_ENGINEER", "Synthesizing clean AST patch... State restored without human escalation.", "highlight");
+        }, 1300);
       });
 
       // Email Copy Button
@@ -1395,9 +1324,6 @@
           window.location.href = 'mailto:bright@gaussianlabs.dev';
         });
       });
-
-      // Initialize
-      setTimeout(resizeCanvas, 50);
     })();
   </script>
 </body>
