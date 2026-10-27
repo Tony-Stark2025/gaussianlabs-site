@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner & Gatekeeper Syndicate | Gaussian Data Advisory</title>
+  <meta name="description" content="Partner with Gaussian Data Advisory. MSPs, Fractional CFOs, M&A Brokers, and IT Consultants earn 30% of gross placement commissions under a 24-month Mutual NCNDA.">
+  <meta name="author" content="Gaussian Data Advisory">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='8' fill='%2305070c'/><path d='M6 16h4l3-8 6 16 3-8h4' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #04060a;
+      --bg-surface: #090d16;
+      --bg-surface-elevated: #101624;
+      --bg-surface-glass: rgba(9, 13, 22, 0.78);
+      --accent-cyan: #38bdf8;
+      --accent-cyan-light: #7dd3fc;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+      --accent-indigo: #6366f1;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-active: rgba(56, 189, 248, 0.45);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background-color: var(--bg-base); color: var(--text-main); font-family: var(--font-body); }
+    body { overflow-x: hidden; line-height: 1.6; position: relative; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 6, 10, 0.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text-main); }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
+      border: 1px solid var(--border-active);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-name { font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; }
+    .brand-name span { color: var(--accent-cyan); }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--text-main); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.7rem 1.35rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.25s ease; cursor: pointer; border: none; font-family: var(--font-body);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+      color: #030712; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(56, 189, 248, 0.45); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05); color: var(--text-main); border: 1px solid var(--border-medium);
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--accent-cyan); }
+
+    .hero { padding: 5.5rem 0 4rem; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 1rem;
+      border-radius: var(--radius-full); background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399;
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-heading); font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; max-width: 900px; margin: 0 auto 1.25rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 60%, #818cf8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-subhead { color: var(--text-muted); font-size: 1.12rem; max-width: 760px; margin: 0 auto 2.25rem; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .card {
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 2rem; text-align: left;
+    }
+    .card-tag {
+      font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; display: block;
+    }
+    .card h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .card p { color: var(--text-muted); font-size: 0.93rem; }
+
+    .section { padding: 4.5rem 0; }
+    .form-box {
+      background: linear-gradient(180deg, rgba(16, 22, 36, 0.92), rgba(9, 13, 22, 0.96));
+      border: 1px solid var(--border-medium); border-radius: var(--radius-lg);
+      padding: 3rem; max-width: 820px; margin: 0 auto;
+    }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .form-input, .form-select {
+      width: 100%; padding: 0.85rem 1rem; background: var(--bg-base);
+      border: 1px solid var(--border-medium); border-radius: var(--radius-sm);
+      color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem;
+    }
+    .form-input:focus, .form-select:focus { outline: none; border-color: var(--accent-cyan); }
+    .toast-msg {
+      display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm);
+      background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399; font-size: 0.92rem; text-align: center;
+    }
+    footer { border-top: 1px solid var(--border-subtle); padding: 3rem 0; text-align: center; color: var(--text-dim); font-size: 0.88rem; }
+
+    @media (max-width: 900px) {
+      .grid-3, .form-grid-2 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .form-box { padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="data.html" class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14h3l3-7 4 14 3-7h3" stroke="#38bdf8"/>
+          </svg>
+        </div>
+        <span class="brand-name">Gaussian<span>Data</span> <small style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">// PARTNERS</small></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#economics" class="nav-link">Syndicate Economics</a></li>
+        <li><a href="#ncnda" class="nav-link">24-Month NCNDA</a></li>
+        <li><a href="data.html" class="nav-link" style="color: var(--accent-cyan);">← Client-Safe Portal</a></li>
+      </ul>
+
+      <a href="#partner-form" class="btn btn-primary">Register Partner Lead</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        Gatekeeper & Advisor Commission Syndicate · 30% Gross Split
+      </div>
+
+      <h1 class="hero-title">
+        Monetize Your Advisory Network. Earn <span class="gradient-text">30% of Gross Placement Fees</span> Per Client.
+      </h1>
+
+      <p class="hero-subhead">
+        Built for <strong>Managed Service Providers (MSPs), Fractional CFOs, M&A Advisors, IT Consultants, and Industry Connectors</strong>. Unlock $50K to $1.5M+ in non-dilutive AI licensing revenue for your clients while capturing a contractual 30% referral split under a binding 24-month Mutual NCNDA.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#partner-form" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          Execute Partner NCNDA & Register →
+        </a>
+        <a href="data.html" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          Preview Client-Safe Valuation Page
+        </a>
+      </div>
+
+      <div class="grid-3" id="economics">
+        <div class="card">
+          <span class="card-tag">01 // Clean Client Separation</span>
+          <h3>100% Client-Safe Main Portal</h3>
+          <p>
+            Our main <a href="data.html" style="color: var(--accent-cyan);">Client Valuation Page</a> contains zero mention of advisor referral splits or finder fees. You can share it directly with CEOs, CFOs, and boards as an institutional valuation resource.
+          </p>
+        </div>
+
+        <div class="card" id="ncnda">
+          <span class="card-tag">02 // Ironclad Attribution</span>
+          <h3>24-Month Mutual NCNDA</h3>
+          <p>
+            Before you reveal a single client name, we execute a bilateral Non-Circumvention & Fee Protection Agreement. Every registered domain or warm intro is locked to your partner ledger for 24 months.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">03 // High-Velocity Settlement</span>
+          <h3>$5K to $30K+ Per Closed Intro</h3>
+          <p>
+            Whether your contact is a 15-person engineering/software shop ($50K–$120K license) or a 250-person industrial contractor ($300K–$1.2M+ license), your 30% share of our placement commission wires within 5 business days of clearing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="partner-form">
+    <div class="container">
+      <div class="form-box">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="card-tag">Partner Onboarding & Lead Registration</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.5rem;">
+            Request Mutual NCNDA & Partner Credentials
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            No client names are required until our Mutual NCNDA is countersigned. Tell us about your advisory practice and the types of companies in your network.
+          </p>
+        </div>
+
+        <form id="gatekeeper-form">
+          <div class="form-grid-2">
+            <div>
+              <label class="form-label" for="p-name">Your Full Name</label>
+              <input type="text" class="form-input" id="p-name" required placeholder="Alex Morgan">
+            </div>
+            <div>
+              <label class="form-label" for="p-email">Work Email</label>
+              <input type="email" class="form-input" id="p-email" required placeholder="alex@advisoryfirm.com">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div>
+              <label class="form-label" for="p-type">Advisory / Connector Profile</label>
+              <select class="form-select" id="p-type">
+                <option value="MSP / IT Solutions Provider">MSP / IT Solutions Provider</option>
+                <option value="Fractional CFO / Accounting / Audit Partner">Fractional CFO / Accounting / Audit Partner</option>
+                <option value="M&A Advisor / Private Equity / Commercial Banker">M&A Advisor / Private Equity / Commercial Banker</option>
+                <option value="Engineering / Software / Industry Connector">Engineering / Software / Industry Connector</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="p-count">Estimated Reach (Qualifying Companies)</label>
+              <select class="form-select" id="p-count">
+                <option value="1-3 Companies">1 to 3 Companies</option>
+                <option value="4-10 Companies" selected>4 to 10 Companies</option>
+                <option value="10+ Companies (Portfolio / MSP)">10+ Companies (Portfolio / MSP)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p-notes">Target Portfolio Profile (No Client Names Needed Yet)</label>
+            <input type="text" class="form-input" id="p-notes" required placeholder="e.g., I advise 6 mid-sized civil engineering & EPC firms and 3 fintech dev shops with 5+ years of CAD/Git archives">
+          </div>
+
+          <button type="submit" id="p-submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; margin-top: 0.5rem;">
+            Request Countersigned NCNDA & Partner Kit →
+          </button>
+
+          <div class="toast-msg" id="p-toast">
+            <strong>Partner Request Received.</strong> We have logged your registration and will dispatch the countersigned 24-Month Mutual NCNDA to your email from <a href="mailto:bright@gaussianlabs.dev" style="color: var(--accent-cyan);">bright@gaussianlabs.dev</a> within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Gaussian Data Advisory. Protected under Bilateral Non-Circumvention Protocols · <a href="data.html" style="color: var(--accent-cyan); text-decoration: none;">Client Valuation Portal</a> · <a href="mailto:bright@gaussianlabs.dev" style="color: var(--accent-cyan); text-decoration: none;">bright@gaussianlabs.dev</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('gatekeeper-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('p-name').value.trim();
+      const email = document.getElementById('p-email').value.trim();
+      const type = document.getElementById('p-type').value;
+      const count = document.getElementById('p-count').value;
+      const notes = document.getElementById('p-notes').value.trim();
+      const btn = document.getElementById('p-submit');
+      const toast = document.getElementById('p-toast');
+
+      btn.disabled = true;
+      btn.textContent = 'Registering Partner Inquiry...';
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/bright@gaussianlabs.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `[PARTNER NCNDA REQUEST] ${name} (${type})`,
+            partner_name: name,
+            partner_email: email,
+            advisor_profile: type,
+            estimated_reach: count,
+            portfolio_summary: notes
+          })
+        });
+        if (!res.ok) throw new Error('Fallback to mailto');
+        btn.textContent = 'NCNDA Request Dispatched ✓';
+      } catch (err) {
+        const subject = encodeURIComponent(`[PARTNER NCNDA REQUEST] ${name} - 30% Split`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProfile: ${type}\nReach: ${count}\nPortfolio Summary (Non-Confidential): ${notes}`);
+        window.location.href = `mailto:bright@gaussianlabs.dev?subject=${subject}&body=${body}`;
+        btn.textContent = 'Opening Email Client for NCNDA ✓';
+      }
+      toast.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
