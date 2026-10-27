@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Data Asset Valuation & Licensing | Gaussian Labs</title>
+  <meta name="description" content="Evaluate, sanitize, and monetize legacy CAD, BIM, proprietary codebases, and industrial telemetry. Secure $250K–$1.5M+ in non-dilutive licensing revenue from frontier AI labs.">
+  <meta name="keywords" content="AI Training Data, CAD Data Licensing, BIM AI Data, Token Density, Grepped Partner, Mercor Data, Enterprise Data Brokerage, Non-Dilutive Capital">
+  <meta name="author" content="Gaussian Labs">
+  
+  <!-- OpenGraph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gaussianlabs.dev/data.html">
+  <meta property="og:title" content="AI Data Asset Valuation & Licensing | Gaussian Labs">
+  <meta property="og:description" content="Turn legacy CAD, code, and industrial telemetry into $250K–$1.5M+ in non-dilutive licensing capital.">
+  <meta property="og:image" content="./assets/datacenter-hardware.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Data Asset Valuation & Licensing | Gaussian Labs">
+  <meta name="twitter:description" content="Turn legacy CAD, code, and industrial telemetry into $250K–$1.5M+ in non-dilutive licensing capital.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='8' fill='%2305070c'/><path d='M6 16h4l3-8 6 16 3-8h4' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #04060a;
+      --bg-surface: #090d16;
+      --bg-surface-elevated: #101624;
+      --bg-surface-glass: rgba(9, 13, 22, 0.78);
+      
+      --accent-cyan: #38bdf8;
+      --accent-cyan-light: #7dd3fc;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+      --accent-indigo: #6366f1;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-active: rgba(56, 189, 248, 0.45);
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.09) 0%, transparent 45%),
+        radial-gradient(circle at 15% 65%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 72px 72px, 72px 72px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Ambient Lighting */
+    .glow-sphere {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Navbar */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.15rem 0;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(4, 6, 10, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.25));
+      border: 1px solid var(--border-active);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #04060a;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 9.5rem 0 5rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid var(--border-active);
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+    }
+
+    .hero-badge-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      max-width: 980px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 80%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subhead {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 1040px;
+      margin: 3.5rem auto 0;
+      text-align: left;
+    }
+
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-3px);
+    }
+
+    .metric-card:hover::before {
+      opacity: 1;
+    }
+
+    .metric-val {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .metric-val span {
+      font-size: 1rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .metric-label {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* Section Headers */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Token Density Grid */
+    .density-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .density-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .density-card.featured {
+      border-color: var(--accent-cyan);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, var(--bg-surface) 100%);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.12);
+    }
+
+    .density-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+
+    .badge-low {
+      background: rgba(100, 116, 139, 0.2);
+      color: var(--text-dim);
+      border: 1px solid rgba(100, 116, 139, 0.3);
+    }
+
+    .badge-high {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid var(--accent-cyan);
+    }
+
+    .badge-max {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid var(--accent-emerald);
+    }
+
+    .density-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .density-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .density-stats {
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+      margin-top: auto;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding: 0.35rem 0;
+    }
+
+    .stat-row:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stat-name {
+      color: var(--text-dim);
+    }
+
+    .stat-val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Calculator & Audit Box */
+    .calc-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      position: relative;
+    }
+
+    @media (max-width: 960px) {
+      .calc-container {
+        grid-template-columns: 1fr;
+        padding: 1.75rem;
+        gap: 2rem;
+      }
+    }
+
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-label-hint {
+      color: var(--text-dim);
+      font-weight: 400;
+      font-size: 0.82rem;
+    }
+
+    .form-select, .form-input {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .form-select:focus, .form-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    }
+
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border-medium);
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    /* Output Results Box */
+    .calc-results {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .calc-results-header {
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-results-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .valuation-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--accent-emerald);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .valuation-sub {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 0.35rem;
+    }
+
+    .result-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .res-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+    }
+
+    .res-label {
+      color: var(--text-muted);
+    }
+
+    .res-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Gatekeeper Program */
+    .gatekeeper-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .gatekeeper-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+      }
+    }
+
+    .gatekeeper-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .gatekeeper-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .split-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Security Specs */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .spec-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+    }
+
+    .spec-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-active);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--accent-cyan);
+    }
+
+    .spec-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .spec-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Pre-Flight Audit Form */
+    .audit-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      max-width: 880px;
+      margin: 0 auto;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .audit-section {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 650px) {
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-group input {
+      margin-top: 0.25rem;
+      accent-color: var(--accent-cyan);
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .toast-msg {
+      display: none;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-emerald);
+      color: #34d399;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      margin-top: 1.25rem;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 4rem 0 3rem;
+      margin-top: 6rem;
+      text-align: center;
+    }
+
+    .footer-text {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light -->
+  <div class="glow-sphere" style="top: 100px; left: 15%;"></div>
+  <div class="glow-sphere" style="top: 1200px; right: 10%; background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14h3l3-7 4 14 3-7h3" stroke="#38bdf8"/>
+          </svg>
+        </div>
+        <span class="brand-name">Gaussian<span>Data</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#token-density" class="nav-link">Token Density</a></li>
+        <li><a href="#valuation-calculator" class="nav-link">Valuation Engine</a></li>
+        <li><a href="#gatekeeper-program" class="nav-link">Gatekeeper Split</a></li>
+        <li><a href="#security" class="nav-link">IP & Sanitization</a></li>
+        <li><a href="index.html" class="nav-link" style="color: var(--accent-cyan); font-weight: 600;">← Agentic Core</a></li>
+      </ul>
+
+      <a href="#audit-form" class="btn btn-primary">
+        Run Asset Audit
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-pulse"></span>
+        Enterprise AI Data Procurement & Sourcing Network
+      </div>
+
+      <h1 class="hero-title">
+        Turn Archived CAD, Code, & Telemetry Into <span class="gradient-text">$250K to $1.5M+</span> in Non-Dilutive Capital.
+      </h1>
+
+      <p class="hero-subhead">
+        Frontier AI labs and research foundations are facing a severe shortage of high-density physical and reasoning training data. Gaussian Data audits, sanitizes, and brokers enterprise assets to major platforms (Mercor, Grepped, Scale AI) with zero operational disruption.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#valuation-calculator" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          Estimate Dataset Value ↓
+        </a>
+        <a href="#gatekeeper-program" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          Become a Gatekeeper Partner
+        </a>
+      </div>
+
+      <!-- Real Market Telemetry Metrics -->
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <div class="metric-val">$1.2M <span>Avg Deal</span></div>
+          <div class="metric-label">Institutional multi-year data licensing deals in industrial & engineering niches.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">Up to $100K <span>Finder Fee</span></div>
+          <div class="metric-label">Referral commission per qualified enterprise data partnership (via Mercor & Grepped).</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">100% <span>Non-Dilutive</span></div>
+          <div class="metric-label">Zero equity surrendered. Read-only historical archives monetized cleanly.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">14–21 Days <span>Time to Close</span></div>
+          <div class="metric-label">Streamlined audit-to-escrow cycle with pre-cleared institutional buyers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Token Density Comparison -->
+  <section class="section" id="token-density">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Market Economics</span>
+        <h2 class="section-title">In a World of Slack & Emails, Be a CAD File</h2>
+        <p class="section-desc">
+          Foundation models have exhausted public text. Labs training world models, spatial reasoning, and autonomous agents pay a 10x–50x premium for high token-density assets.
+        </p>
+      </div>
+
+      <div class="density-grid">
+        <!-- Low Density -->
+        <div class="density-card">
+          <div>
+            <span class="density-badge badge-low">Low Token Density // Commoditized</span>
+            <h3 class="density-title">Communications & Chat Logs</h3>
+            <p class="density-desc">
+              Slack threads, corporate email chains, and support tickets. High token volume with negligible reasoning density. Labs are actively reducing procurement budgets here.
+            </p>
+          </div>
+          <div class="density-stats">
+            <div class="stat-row">
+              <span class="stat-name">Format</span>
+              <span class="stat-val">.JSON, .CSV, Plain Text</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Density Index</span>
+              <span class="stat-val">1.2 / 10</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Market Trend</span>
+              <span class="stat-val" style="color: var(--accent-rose);">Declining Demand</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- High Density CAD/BIM -->
+        <div class="density-card featured">
+          <div>
+            <span class="density-badge badge-high">High Token Density // Prime Demand</span>
+            <h3 class="density-title">CAD, BIM & Spatial Layouts</h3>
+            <p class="density-desc">
+              Every vector carries pipe diameters, code constraints, tolerances, clearances, and structural logic. A single 3D assembly teaches spatial reasoning that billions of text tokens cannot.
+            </p>
+          </div>
+          <div class="density-stats">
+            <div class="stat-row">
+              <span class="stat-name">Format</span>
+              <span class="stat-val">.STEP, .SLDPRT, .RVT, .DWG</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Density Index</span>
+              <span class="stat-val" style="color: var(--accent-cyan);">9.4 / 10</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Market Trend</span>
+              <span class="stat-val" style="color: var(--accent-emerald);">Urgent Lab Acquisition</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extreme Density Code/Telemetry -->
+        <div class="density-card">
+          <div>
+            <span class="density-badge badge-max">Maximum Token Density // Multi-Million Deals</span>
+            <h3 class="density-title">Paired DevOps & Industrial Telemetry</h3>
+            <p class="density-desc">
+              Paired Jira specs $\rightarrow$ Git commit trees $\rightarrow$ resolved Pull Requests, alongside PLC automation scripts and predictive maintenance telemetry.
+            </p>
+          </div>
+          <div class="density-stats">
+            <div class="stat-row">
+              <span class="stat-name">Format</span>
+              <span class="stat-val">Git, PLC logs, SCADA feeds</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Density Index</span>
+              <span class="stat-val" style="color: var(--accent-emerald);">9.8 / 10</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-name">Market Trend</span>
+              <span class="stat-val" style="color: var(--accent-emerald);">Highest Payout Multiplier</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Valuation Calculator -->
+  <section class="section" id="valuation-calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pre-Flight Valuation Engine</span>
+        <h2 class="section-title">Estimate Your Corporate Data Payout</h2>
+        <p class="section-desc">
+          Calculate the expected non-dilutive licensing capital your historical archives can command on the institutional AI market.
+        </p>
+      </div>
+
+      <div class="calc-container">
+        <!-- Input Controls -->
+        <div class="calc-inputs">
+          <div class="form-group">
+            <label class="form-label" for="calc-industry">
+              Target Vertical
+              <span class="form-label-hint">Primary operational sector</span>
+            </label>
+            <select class="form-select" id="calc-industry">
+              <option value="manufacturing" selected>Precision Manufacturing & Machining (CAD / CNC / PLC)</option>
+              <option value="aec">AEC & MEP Engineering (Architectural BIM / Revit / DWG)</option>
+              <option value="software">B2B Software & Dev Shops (Git Repos / PR Histories / DevOps)</option>
+              <option value="logistics">Logistics, Freight & SCADA (Fleet Telemetry / Routing)</option>
+              <option value="legal_medical">Specialized Professional (Litigation Records / DICOM / Clinical)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="calc-asset-type">
+              Primary Data Asset Format
+              <span class="form-label-hint">Dominant file representation</span>
+            </label>
+            <select class="form-select" id="calc-asset-type">
+              <option value="cad_3d" selected>3D Mechanical / CAD Assemblies (.STEP, .SLDPRT, .IGES)</option>
+              <option value="bim_aec">Building Information Models (.RVT, .IFC, Navisworks)</option>
+              <option value="paired_code">Paired Repositories + Commit Trees + Issue Trackers</option>
+              <option value="telemetry">Sensor Streams, Machine Telematics & Quality Assurance Logs</option>
+              <option value="video_multimodal">Raw Commercial Video / Drone Inspection Footage</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="calc-archive-age">
+              Archive Historical Depth
+              <span class="form-label-hint">Span of continuous digital records</span>
+            </label>
+            <select class="form-select" id="calc-archive-age">
+              <option value="1">1 to 3 Years of Records</option>
+              <option value="2" selected>3 to 5 Years of Records (Standard Enterprise)</option>
+              <option value="3">5 to 10+ Years of Comprehensive Archives</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Estimated Volume / Asset Count
+              <span class="form-label-hint" id="volume-label">15,000 Assemblies / Files</span>
+            </label>
+            <div class="slider-container">
+              <input type="range" min="1000" max="100000" step="1000" value="15000" class="slider" id="calc-volume">
+              <div class="slider-labels">
+                <span>1,000 Files</span>
+                <span>50,000 Files</span>
+                <span>100,000+ Files</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="calc-company-size">
+              Company Scale
+              <span class="form-label-hint">Full-time employee footprint</span>
+            </label>
+            <select class="form-select" id="calc-company-size">
+              <option value="small">30 to 100 Employees</option>
+              <option value="mid" selected>100 to 500 Employees (Optimal Fit)</option>
+              <option value="enterprise">500+ Employees (Global Enterprise)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Valuation Results Output -->
+        <div class="calc-results">
+          <div>
+            <div class="calc-results-header">
+              <div class="calc-results-title">Estimated Enterprise Licensing Value</div>
+              <div class="valuation-number" id="res-licensing-val">$850,000 – $1,250,000</div>
+              <div class="valuation-sub">Non-dilutive lump sum / multi-year recurring license</div>
+            </div>
+
+            <div class="result-breakdown">
+              <div class="res-item">
+                <span class="res-label">Partner Referral Payout</span>
+                <span class="res-val" id="res-partner-cut" style="color: var(--accent-cyan);">$85,000 – $100,000 (Max Cap)</span>
+              </div>
+              <div class="res-item">
+                <span class="res-label">Target Buyer Category</span>
+                <span class="res-val" id="res-buyer-type">Frontier Physical AI & World Models</span>
+              </div>
+              <div class="res-item">
+                <span class="res-label">Market Scarcity Index</span>
+                <span class="res-val" id="res-scarcity" style="color: var(--accent-emerald);">Extremely High (Tier 1)</span>
+              </div>
+              <div class="res-item">
+                <span class="res-label">Audit-to-Payout Timeline</span>
+                <span class="res-val">14 to 21 Business Days</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#audit-form" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
+            Lock In Asset Pre-Check →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gatekeeper Commission Sharing Section -->
+  <section class="section" id="gatekeeper-program">
+    <div class="container">
+      <div class="gatekeeper-card">
+        <div>
+          <div class="split-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Gatekeeper Partnership Program
+          </div>
+          <h2 class="gatekeeper-title">Earn Up to $30K per Client Introduction</h2>
+          <p class="gatekeeper-desc">
+            Are you a <strong>Managed Service Provider (MSP), Fractional CFO, M&A Intermediary, or IT Consultant</strong>? Your clients are sitting on millions of dollars in unmonetized digital assets. 
+          </p>
+          <p class="gatekeeper-desc">
+            We partner with trusted enterprise advisors, providing full non-circumvention agreements and sharing <strong>30% of our gross referral commission</strong> on every transaction closed.
+          </p>
+          
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:bright@gaussianlabs.dev?subject=Gatekeeper%20Partner%20Inquiry%20-%2030%25%20Split" class="btn btn-primary">
+              Sign Partner Agreement (NCNDA)
+            </a>
+            <a href="#audit-form" class="btn btn-secondary">
+              Submit Client Candidate
+            </a>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1.75rem;">
+          <h4 style="font-family: var(--font-heading); margin-bottom: 1rem; color: var(--accent-cyan); font-size: 1.1rem;">The Gatekeeper Advantage:</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.9rem; font-size: 0.92rem; color: var(--text-muted);">
+            <li style="display: flex; gap: 0.65rem;">
+              <span style="color: var(--accent-emerald);">✔</span> 
+              <span><strong>Zero Legal Friction:</strong> Comprehensive NCNDA protects your attribution for 24 months.</span>
+            </li>
+            <li style="display: flex; gap: 0.65rem;">
+              <span style="color: var(--accent-emerald);">✔</span> 
+              <span><strong>Client Value Creation:</strong> Generates $500k–$1.5M in non-dilutive liquidity for your clients.</span>
+            </li>
+            <li style="display: flex; gap: 0.65rem;">
+              <span style="color: var(--accent-emerald);">✔</span> 
+              <span><strong>Hands-Off Fulfillment:</strong> Gaussian Data coordinates the technical audit, sanitization, and broker submission.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security, Anonymization & Legal Defense -->
+  <section class="section" id="security">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Institutional Compliance</span>
+        <h2 class="section-title">Zero IP Leakage. Total Security by Default.</h2>
+        <p class="section-desc">
+          Business owners protect their core intellectual property. Our institutional data pipeline guarantees strict privacy wrapping, client anonymization, and competitive isolation.
+        </p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="spec-title">Automated PII/PHI De-Identification</h3>
+          <p class="spec-desc">
+            All customer names, vendor contact information, project addresses, and financial identifiers are permanently scrubbed before any asset leaves local quarantine.
+          </p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="spec-title">Competitive Isolation</h3>
+          <p class="spec-desc">
+            Data is licensed strictly for general foundation model pre-training and physical AI reasoning. Contracts legally forbid selling or distributing datasets to direct competitors.
+          </p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="spec-title">Clean IP Title Verification</h3>
+          <p class="spec-desc">
+            We confirm 100% undisputed corporate ownership over underlying CAD assemblies, internal software repos, and sensor feeds to ensure compliance with lab legal escrows.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2-Minute Pre-Flight Audit Form -->
+  <section class="section" id="audit-form">
+    <div class="container">
+      <div class="audit-section">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-tag">Confidential Asset Ingestion</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; margin-bottom: 0.75rem;">
+            Initiate 2-Minute Digital Asset Audit
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Submit your corporate digital asset footprint for a formal market appraisal and broker routing.
+          </p>
+        </div>
+
+        <form id="preflight-audit-form">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="audit-company">Company Name</label>
+              <input type="text" class="form-input" id="audit-company" placeholder="Acme Precision Machining Inc." required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="audit-email">Corporate Work Email</label>
+              <input type="email" class="form-input" id="audit-email" placeholder="executive@acmemachining.com" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="margin-top: 1.25rem;">
+            <div class="form-group">
+              <label class="form-label" for="audit-role">Your Role / Relationship</label>
+              <select class="form-select" id="audit-role">
+                <option value="owner">Company Owner / Managing Director</option>
+                <option value="executive">CTO / CIO / VP of Operations</option>
+                <option value="gatekeeper">Advisor (MSP / Fractional CFO / M&A Broker)</option>
+                <option value="other">Other Technical Leader</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="audit-size">Employee Count</label>
+              <select class="form-select" id="audit-size">
+                <option value="30-100">30–100 Employees</option>
+                <option value="100-500" selected>100–500 Employees (High Demand)</option>
+                <option value="500+">500+ Employees</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 1.25rem;">
+            <label class="form-label" for="audit-assets">Asset Formats & Description</label>
+            <input type="text" class="form-input" id="audit-assets" placeholder="e.g. 14,000 SolidWorks .SLDPRT assemblies, 8 years of CNC tooling logs, internal GitLab repos" required>
+          </div>
+
+          <div class="checkbox-group" style="margin-top: 1.5rem;">
+            <input type="checkbox" id="audit-ip-check" required>
+            <label class="checkbox-label" for="audit-ip-check">
+              I certify that our organization (or represented client) owns 100% of the underlying technical IP, internal designs, or operational logs, and they are free of third-party restrictive covenants.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; margin-top: 2rem; font-size: 1.05rem;">
+            Submit Confidential Asset Audit →
+          </button>
+
+          <div class="toast-msg" id="audit-toast">
+            Audit request submitted successfully. A Gaussian Data specialist will review the asset telemetry and contact you within 24 hours with valuation credentials.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-text">
+        © 2026 Gaussian Labs. Enterprise AI Data Brokerage & Agentic Systems Architecture.
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Agentic Swarm Engine</a></li>
+        <li><a href="#valuation-calculator">Valuation Engine</a></li>
+        <li><a href="#gatekeeper-program">Gatekeeper Network</a></li>
+        <li><a href="mailto:bright@gaussianlabs.dev">bright@gaussianlabs.dev</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Live Calculator Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const industryEl = document.getElementById('calc-industry');
+      const assetTypeEl = document.getElementById('calc-asset-type');
+      const archiveAgeEl = document.getElementById('calc-archive-age');
+      const volumeEl = document.getElementById('calc-volume');
+      const volumeLabelEl = document.getElementById('volume-label');
+      const companySizeEl = document.getElementById('calc-company-size');
+
+      const resLicensingVal = document.getElementById('res-licensing-val');
+      const resPartnerCut = document.getElementById('res-partner-cut');
+      const resBuyerType = document.getElementById('res-buyer-type');
+      const resScarcity = document.getElementById('res-scarcity');
+
+      function calculateValuation() {
+        const volume = parseInt(volumeEl.value, 10);
+        const ageMultiplier = parseFloat(archiveAgeEl.value); // 1, 2, or 3
+        const assetType = assetTypeEl.value;
+        const industry = industryEl.value;
+        const size = companySizeEl.value;
+
+        volumeLabelEl.textContent = `${volume.toLocaleString()} Files / Assemblies`;
+
+        // Base price per asset item based on token density
+        let basePerItem = 15;
+        let buyer = "Frontier Physical AI & World Models";
+        let scarcity = "Extremely High (Tier 1)";
+
+        if (assetType === 'cad_3d') {
+          basePerItem = 45;
+          buyer = "World Labs, NVIDIA Omniverse & Physical AI Labs";
+          scarcity = "Top Tier Scarcity (Max Token Density)";
+        } else if (assetType === 'bim_aec') {
+          basePerItem = 38;
+          buyer = "AEC Reasoning Models & Spatial Intelligence Labs";
+          scarcity = "High Scarcity (Tier 1)";
+        } else if (assetType === 'paired_code') {
+          basePerItem = 30;
+          buyer = "Frontier Code Synthesis Labs (OpenAI, Anthropic)";
+          scarcity = "High Demand (Paired Workflow)";
+        } else if (assetType === 'telemetry') {
+          basePerItem = 12;
+          buyer = "Industrial IoT & Autonomous Control Models";
+          scarcity = "Moderate - High Volume";
+        } else if (assetType === 'video_multimodal') {
+          basePerItem = 55;
+          buyer = "Video Foundation Models (Sora, Veo, Runway)";
+          scarcity = "Maximum Lab Priority";
+        }
+
+        let sizeMultiplier = 1.0;
+        if (size === 'mid') sizeMultiplier = 1.25;
+        if (size === 'enterprise') sizeMultiplier = 1.6;
+
+        let rawVal = volume * basePerItem * (0.8 + (ageMultiplier * 0.2)) * sizeMultiplier;
+
+        // Realistic deal floor and ceilings based on Grepped/Mercor distributions
+        rawVal = Math.max(250000, rawVal);
+        const lowBound = Math.round(rawVal * 0.85 / 10000) * 10000;
+        const highBound = Math.round(rawVal * 1.35 / 10000) * 10000;
+
+        resLicensingVal.textContent = `$${lowBound.toLocaleString()} – $${highBound.toLocaleString()}`;
+
+        // Partner Referral Cut (10% capped at $100k or flat $100k for large deals)
+        const lowPartner = Math.min(100000, Math.round(lowBound * 0.10));
+        const highPartner = Math.min(100000, Math.round(highBound * 0.10));
+        resPartnerCut.textContent = `$${lowPartner.toLocaleString()} – $${highPartner.toLocaleString()} (Max Cap)`;
+
+        resBuyerType.textContent = buyer;
+        resScarcity.textContent = scarcity;
+      }
+
+      industryEl.addEventListener('change', calculateValuation);
+      assetTypeEl.addEventListener('change', calculateValuation);
+      archiveAgeEl.addEventListener('change', calculateValuation);
+      volumeEl.addEventListener('input', calculateValuation);
+      companySizeEl.addEventListener('change', calculateValuation);
+
+      calculateValuation();
+
+      // Form Handling
+      const auditForm = document.getElementById('preflight-audit-form');
+      const auditToast = document.getElementById('audit-toast');
+
+      auditForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const company = document.getElementById('audit-company').value;
+        const email = document.getElementById('audit-email').value;
+        const role = document.getElementById('audit-role').value;
+        const assets = document.getElementById('audit-assets').value;
+
+        // Construct clean mailto link fallback & display toast
+        const subject = encodeURIComponent(`[CONFIDENTIAL DATA AUDIT] ${company}`);
+        const body = encodeURIComponent(
+          `Company: ${company}\nEmail: ${email}\nRole: ${role}\nAsset Summary: ${assets}\nSubmitted via gaussianlabs.dev/data.html`
+        );
+
+        auditToast.style.display = 'block';
+        auditToast.scrollIntoView({ behavior: 'smooth' });
+
+        // Trigger background mailto dispatch
+        setTimeout(() => {
+          window.location.href = `mailto:bright@gaussianlabs.dev?subject=${subject}&body=${body}`;
+        }, 1200);
+      });
+    });
+  </script>
+</body>
+</html>
