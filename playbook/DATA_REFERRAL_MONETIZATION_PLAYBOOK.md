@@ -1,52 +1,95 @@
-# GAUSSIAN DATA: ENTERPRISE DATA REFERRAL & MONETIZATION PLAYBOOK
-
-This playbook outlines the exact operational procedures, outreach campaigns, qualification gates, and closing sequences to generate six-to-seven-figure data licensing deals and capture up to **$100,000+ per referral** from AI data platforms like **Mercor Data** and **Grepped**.
-
----
-
-## 1. PLATFORM REGISTRATION & AFFILIATE PIPELINES
-
-Before contacting prospects, lock in your tracking accounts so every company you submit is legally credited to you.
-
-### Platform A: Mercor Data
-* **Submission Portal:** [https://data.mercor.com/refer](https://data.mercor.com/refer)
-* **Payout Structure:** Up to **$100,000** for every company referred that licenses its data.
-* **Target Criteria:** Companies with **100+ employees** possessing proprietary data in:
-  * Proprietary Codebases & DevOps Logs
-  * Precision Manufacturing / CAD / CAM
-  * Gaming & 3D Simulation Assets
-  * Healthcare & Clinical Archives
-  * Specialty Legal & Financial Workflows
-* **Action:** Bookmark the submission page, submit your contact info (`bright@gaussianlabs.dev`), and maintain an attribution log of every company submitted.
-
-### Platform B: Grepped Partner Program
-* **Portal:** `grepped.ai` (Partner / Broker Network)
-* **Payout Structure:** **10% referral cut** (or up to $100k–$1M+ per deal, depending on tier and exclusivity).
-* **Target Criteria:** Traditional mid-market enterprises ($10M–$200M revenue, 50–500+ employees) with multi-year archives in SolidWorks, Revit, Siemens NX, Epicor, NetSuite, or Jira.
-* **Action:** Apply as an institutional data sourcing partner under Gaussian Labs (`gaussianlabs.dev/data.html`).
+# GAUSSIAN DATA: ENTERPRISE DATA REFERRAL & BROKERAGE PLAYBOOK
+## Ground-Truth Intelligence & Operational Closing Guide (Grepped AI & Mercor Data)
 
 ---
 
-## 2. THE 3-POINT PRE-FLIGHT QUALIFICATION CHECKLIST
+## 1. GROUND-TRUTH INTELLIGENCE & VERIFIED PLATFORM POLICIES
 
-Never submit an unqualified lead. AI acquisition teams prioritize leads that meet three non-negotiable criteria:
+Our live intelligence audits of **Grepped AI** (`grepped.ai`), **Mercor Data** (`data.mercor.com`), and primary source statements from founders (Erik Newsham and Brendan Foody) establish the exact operational mechanics of the current AI data gold rush.
 
-| Gate | Requirement | Pass Criteria | Disqualification Trigger |
-| :--- | :--- | :--- | :--- |
-| **1. IP Cleanliness** | 100% Undisputed IP Title | The company created and owns the files internally (e.g. OEM product designs, internal shop drawings, proprietary tools). | Company did work-for-hire where the foreign client owns the IP, or designs contain licensed third-party trade secrets. |
-| **2. Token Density** | Structured Physical or Code Formats | Native files: `.SLDPRT`, `.STEP`, `.RVT`, `.DWG`, `.PLC`, Git repositories with commit trees. | Scanned paper blueprints, unsearchable PDFs, or generic Slack chat logs. |
-| **3. Historical Depth** | Continuous Digital Operations | 3 to 10+ years of archived projects (at least 5,000+ CAD assemblies or 50+ repositories). | Early-stage startups with less than 18 months of operations. |
+### A. Grepped AI (`grepped.ai/partners/`)
+* **Founder:** Erik Newsham (`@eriknewsha`)
+* **Economic Reality:** Grepped scaled to **$4M MRR ($48M ARR run rate)** within weeks of launching. Average enterprise deal sizes transitioned from $250k–$400k up to **$1.1M–$1.3M+** as enterprise procurement shifted to industrial manufacturing, chemistry, semiconductors, and specialized workflows.
+* **Official Partner Model (Direct Ground Truth):**
+  > *"Referral systems are broken. The biggest brokers cap referrers' fees and pocket 80 to 90% margin... Grepped Partners changes that. You bring the relationships. We bring the infrastructure: connections to the AI labs, de-identification systems, data assurance, and a team of closers who take every deal from the first call to delivery. **We split the spread with you 50/50.** Membership is by application only."*
+* **The "John" Case Study (Indiana Manufacturing):**
+  * John (19 years old, son of an Indiana precision manufacturer) asked his father's peer network of manufacturing owners if they wanted to monetize their archived telemetry and CAD files.
+  * 8 owners agreed to audits; 4 closed initially ($500k–$1.2M 2-year licenses), netting John six figures per transaction.
+  * John subsequently introduced a tier-1 manufacturing behemoth resulting in an exclusive 3-year deal and a **7-figure referral payout**.
+* **Grepped High-Priority Data Assets:**
+  1. **Workspaces & Messages:** Slack, Microsoft Teams, Gmail, Outlook (chats, decisions, and reasoning traces).
+  2. **Codebases & DevOps:** GitHub, GitLab, Bitbucket, Jira (paired issues $\rightarrow$ commit trees $\rightarrow$ reviews).
+  3. **Documents & Knowledge:** Google Drive, SharePoint, Notion, DocuSign (internal SOPs, contracts, audits).
+  4. **Raw Data & Financials:** Salesforce, HubSpot, QuickBooks, Xero (transaction ledgers, supply pipelines).
+  5. **Tasks & Support:** Zendesk, Asana, ServiceNow (tickets, steps taken, resolutions).
 
 ---
 
-## 3. HIGH-CONVERTING OUTREACH ENGINE
+### B. Mercor Data (`data.mercor.com/refer`)
+* **CEO / Founder:** Brendan Foody (`@brendanfoody`)
+* **Official Statement:** 
+  > *"We’ll pay you up to $100K for every company you refer that licenses its data to @mercor. We’ve partnered with > 500 companies so far."*
+* **Target Company Requirements:**
+  * **Scale Threshold:** Companies with **100+ employees**.
+  * **Core Verticals:** **Code, Gaming, Manufacturing, Healthcare, or Professional Services**.
+* **Submission Portal:** [https://data.mercor.com/refer](https://data.mercor.com/refer) allows immediate programmatic tracking and submission of unlisted corporate candidates.
 
-Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch **"Monetizing Latent Digital Infrastructure"** or **"Non-Dilutive Balance Sheet Liquidity."**
+---
+
+## 2. THE 2-PRONGED SUBMISSION & TRACKING ARBITRAGE
+
+You have two complementary monetization rails depending on the deal shape:
+
+```
+                          ┌─────────────────────────────────────┐
+                          │     Target Company Pre-Qualified    │
+                          └──────────────────┬──────────────────┘
+                                             │
+                    ┌────────────────────────┴────────────────────────┐
+                    ▼                                                 ▼
+       [ Route 1: Grepped Partners ]                     [ Route 2: Mercor Data ]
+   • Bespoke, Mid-to-Large Manufacturing             • Programmatic 100+ Employee Scale
+   • 50/50 Spread Split (Uncapped Upside)            • Up to $100K Flat Cash Bounty
+   • Ideal for CAD, PLC, Semi, Codebases             • Ideal for Healthcare, Dev Shops, SaaS
+```
+
+### Action Step 1: Submit Grepped Partner Application
+1. Navigate to: `https://grepped.ai/partners/`
+2. Submit your application under **Gaussian Labs** (`https://gaussianlabs.dev/data.html`):
+   * **Full Name:** Bright [Last Name]
+   * **Organization:** Gaussian Labs
+   * **Positioning:** *"We run Gaussian Labs (gaussianlabs.dev/data.html), an institutional data sourcing and technical pre-flight audit portal. We partner with MSPs, M&A advisors, and manufacturing networks to source proprietary CAD (.STEP/.SLDPRT), BIM, paired DevOps codebases, and industrial telemetry."*
+3. Grepped reviews and approves by email, assigning you your direct closer channel and partner attribution tags.
+
+### Action Step 2: Set Up Mercor Data Tracking
+1. Open [https://data.mercor.com/refer](https://data.mercor.com/refer)
+2. Submit qualified candidate profiles directly through the portal, or bookmark the individual listing bonuses.
+3. Record all submissions in your internal CRM with timestamps and contact logs to establish undisputed procuring cause.
+
+---
+
+## 3. THE 3-POINT PRE-FLIGHT QUALIFICATION CHECKLIST
+
+Before introducing any company to Grepped or Mercor, run them through these 3 filters:
+
+1. **Undisputed IP Title:**
+   * Does the company own 100% of the underlying CAD, source code, or telemetry?
+   * *Pass:* Internal designs, OEM tooling, internal operational software, own shop drawings.
+   * *Fail:* Work-for-hire agency work where the contract assigned all IP to third-party clients.
+2. **Format & Structure:**
+   * Is the data digital and structured in native production formats?
+   * *Pass:* `.STEP`, `.SLDPRT`, `.RVT`, `.DWG`, Git commit histories, SQL/PostgreSQL databases, PLC scripts.
+   * *Fail:* Physical paper binders, unsearchable scanned PDFs, or fragmented personal spreadsheets.
+3. **Scale & Depth:**
+   * At least **3+ years of continuous operating records** and **50–500+ employees** (Mercor requires 100+ employees; Grepped accepts 50+ if asset density is high).
+
+---
+
+## 4. HIGH-CONVERTING COLD OUTREACH CAMPAIGNS
 
 ### Campaign 1: The Gatekeeper Split (For MSPs & IT Consultants)
-* **Target:** Owners, Partners, and VPs of Managed Service Providers (MSPs).
-* **Why it works:** MSPs manage backups, SharePoint drives, and servers for dozens of manufacturing and engineering firms.
-* **The Incentive:** 30% commission share (up to $30K per closed deal).
+* **Target:** Managed Service Providers (MSPs), IT Directors, Cloud Migration Consultants.
+* **Offer:** 30% commission share (up to $30K per closed deal) protected under NCNDA.
 
 > **Subject:** Non-dilutive revenue for your manufacturing / AEC clients
 >
@@ -54,7 +97,7 @@ Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch
 >
 > Quick question—do any of your mid-market manufacturing, AEC, or engineering clients have 5+ years of archived CAD models, BIM layouts, or PLC logs sitting on their local servers or cloud storage?
 >
-> Frontier AI research labs (like OpenAI, World Labs, and NVIDIA) are aggressively licensing non-sensitive, high-density 3D engineering files to train physical AI world models. These licensing deals are paying **$500k to $1.5M+ in non-dilutive capital**.
+> Frontier AI research labs (like OpenAI, World Labs, and NVIDIA) are aggressively licensing non-sensitive, high-density 3D engineering files to train physical AI world models. These licensing deals are paying **$500k to $1.3M+ in non-dilutive capital**.
 >
 > At Gaussian Data, we run 10-minute digital asset audits to evaluate what an archive is worth. All customer names, vendor lists, and PII are scrubbed before delivery, and data is never shared with competitors.
 >
@@ -69,8 +112,7 @@ Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch
 ---
 
 ### Campaign 2: Fractional CFOs & M&A Intermediaries
-* **Target:** Fractional CFOs, Controllers, and Boutique Business Brokers.
-* **Why it works:** They are focused on boosting client valuation and cash flow before recapitalizations or exits.
+* **Target:** Fractional CFOs, Controllers, Boutique Business Brokers.
 
 > **Subject:** $500k–$1.2M non-dilutive liquidity for your portfolio companies
 >
@@ -93,7 +135,7 @@ Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch
 ---
 
 ### Campaign 3: Direct to Precision Manufacturing & Engineering Owners
-* **Target:** Owners, Managing Directors, CTOs, and VPs of Engineering at manufacturing companies (100–500 employees).
+* **Target:** Owners, Managing Directors, CTOs, and VPs of Engineering at manufacturing companies (50–500 employees).
 
 > **Subject:** Digital asset valuation / [Company Name]'s CAD & telemetry archives
 >
@@ -101,7 +143,7 @@ Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch
 >
 > We work with frontier AI research labs evaluating and licensing high-density engineering archives (CAD models, SolidWorks assemblies, CNC scripts, and quality logs).
 >
-> Mid-sized precision manufacturing firms are currently securing **$500,000 to $1,200,000+** in multi-year, non-dilutive licensing capital by providing read-only, anonymized access to historical project files.
+> Mid-sized precision manufacturing firms are currently securing **$500,000 to $1,300,000+** in multi-year, non-dilutive licensing capital by providing read-only, anonymized access to historical project files.
 >
 > **Core Protections:**
 > 1. All client identifiers, PII, and project names are permanently scrubbed.
@@ -118,30 +160,11 @@ Do not pitch "Sell your data to AI" (which triggers security alarm bells). Pitch
 
 ---
 
-## 4. 30-DAY EXECUTION SPRINT
+## 5. 30-DAY STEP-BY-STEP CLOSING SPRINT
 
-Follow this compressed timeline to close your first referral deals within 4 weeks:
-
-### Week 1: Infrastructure & Partner Contracting (Days 1–7)
-* [x] **Website Live:** Confirm `https://gaussianlabs.dev/data.html` is indexed and responsive.
-* [ ] **Partner Accounts:** Register your profile on `data.mercor.com/refer` and `grepped.ai`.
-* [ ] **Prepare Agreement:** Customize `legal/MUTUAL_NCNDA_AND_REFERRAL_AGREEMENT.md` with your legal details.
-* [ ] **Lead List 1:** Build a list of 50 regional MSPs and Fractional CFOs using LinkedIn Sales Navigator or Apollo (Filters: MSP / IT Consulting / Accounting, 10–50 employees, US/UK/Canada).
-
-### Week 2: Gatekeeper Outreach Launch (Days 8–14)
-* [ ] Send 10 personalized Gatekeeper emails per business day (Campaign 1 & 2).
-* [ ] Conduct 5-minute discovery calls with interested MSPs/CFOs.
-* [ ] Send and execute the Mutual NCNDA with 3–5 interested gatekeepers to formalize the 30% split.
-
-### Week 3: Client Audits & Pre-Flight Qualification (Days 15–21)
-* [ ] Request gatekeepers share an anonymized overview of 2–3 high-potential manufacturing/engineering clients.
-* [ ] Run candidate assets through the **Gaussian Data Valuation Engine** (`gaussianlabs.dev/data.html#valuation-calculator`).
-* [ ] Verify the 3-Point Pre-Flight Qualification Checklist (IP Cleanliness, Format, Archive Depth).
-
-### Week 4: Submission & Commission Tracking (Days 22–30)
-* [ ] Submit pre-qualified candidate profiles to:
-  * **Mercor Data:** via `data.mercor.com/refer`
-  * **Grepped Partner Portal:** via direct partner deal ticket
-* [ ] Send confirmation notice to your Gatekeeper partner under the NCNDA tracking log.
-* [ ] Monitor deal progression through platform procurement and audit settlement.
-* [ ] Collect your first referral commission payout (up to $100K) upon contract closing!
+* **Days 1–3:** Submit partner application to `grepped.ai/partners/` citing Gaussian Labs (`gaussianlabs.dev/data.html`). Bookmark `data.mercor.com/refer`.
+* **Days 4–7:** Pull 50 verified contacts of regional MSPs and Fractional CFOs across manufacturing hubs (e.g. Indiana, Ohio, Michigan, Texas, Ontario, Germany, UK).
+* **Days 8–14:** Launch Outreach Campaign 1 & 2. Aim for 10 personalized touches per day.
+* **Days 15–20:** Execute discovery calls. Send `legal/MUTUAL_NCNDA_AND_REFERRAL_AGREEMENT.md` to lock in the 30% split.
+* **Days 21–25:** Review client asset footprints. Direct owners/gatekeepers to `https://gaussianlabs.dev/data.html#valuation-calculator`.
+* **Days 26–30:** Submit qualified candidates to Grepped Partners and Mercor Data. Monitor deal closing and receive first commission payout!
