@@ -1,0 +1,32 @@
+{
+  "rewrites": [
+    {
+      "source": "/dashboard",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/dashboard"
+    },
+    {
+      "source": "/readyz",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/readyz"
+    },
+    {
+      "source": "/health",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/health"
+    },
+    {
+      "source": "/docs",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/docs"
+    },
+    {
+      "source": "/openapi.json",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/openapi.json"
+    },
+    {
+      "source": "/mcp/:path*",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/mcp/:path*"
+    },
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/api/v1/:path*"
+    }
+  ]
+}

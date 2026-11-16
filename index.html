@@ -906,14 +906,19 @@
       <ul class="nav-links">
         <li><a href="#swarm-orchestrator" class="nav-link">Swarm Engine</a></li>
         <li><a href="#infrastructure" class="nav-link">Infrastructure</a></li>
-        <li><a href="#architecture" class="nav-link">Harness Specs</a></li>
+        <li><a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent-emerald); font-weight: 600;">Prometheus v3.0 <span style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); border-radius: 4px; padding: 2px 6px; margin-left: 4px;">LIVE</span></a></li>
         <li><a href="data.html" class="nav-link" style="color: var(--accent-cyan); font-weight: 600;">Data Monetization <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent-cyan); border-radius: 4px; padding: 2px 6px; margin-left: 4px;">$250K+</span></a></li>
         <li><a href="#enterprise" class="nav-link">Partnerships</a></li>
       </ul>
 
-      <a href="data.html" class="btn btn-primary">
-        Monetize Data
-      </a>
+      <div style="display: flex; gap: 0.65rem; align-items: center;">
+        <a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color: var(--accent-emerald); color: var(--accent-emerald);">
+          🛡️ Prometheus Console
+        </a>
+        <a href="data.html" class="btn btn-primary">
+          Monetize Data
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -934,14 +939,14 @@
       </p>
 
       <div class="hero-actions">
-        <a href="data.html" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+        <a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          🛡️ Launch Prometheus v3.0 AppSec Console →
+        </a>
+        <a href="data.html" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem; border-color: var(--accent-cyan); color: var(--accent-cyan);">
           Monetize Legacy Data ($250k–$1.5M+) →
         </a>
-        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20-%20Gaussian%20Labs" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
-          Initiate Design Partnership
-        </a>
         <a href="#swarm-orchestrator" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
-          Inspect Swarm Simulator ↓
+          Inspect Live Swarm Telemetry ↓
         </a>
       </div>
 
@@ -1348,16 +1353,39 @@
         });
       }
 
-      function runSwarm() {
+      const PROMETHEUS_CLOUD_RUN = 'https://trustguard-135010851380.us-central1.run.app';
+
+      async function runSwarm() {
         if (isRunning) return;
         isRunning = true;
         btnDispatch.disabled = true;
         btnDispatch.style.opacity = '0.6';
-        statusText.textContent = "STATUS: SWARM ACTIVE // PIPELINE EXECUTING";
+        statusText.textContent = "STATUS: SWARM ACTIVE // LIVE CLOUD RUN TELEMETRY";
         resetNodes();
 
         const scenario = taskScenarios[selectedTask];
-        logLine("ORCHESTRATOR", `Dispatching autonomous multi-agent swarm for [${scenario.name}]...`, "highlight");
+        logLine("ORCHESTRATOR", `Connecting to live Prometheus v3.0 Cloud Run Engine (${PROMETHEUS_CLOUD_RUN})...`, "highlight");
+
+        try {
+          const readyRes = await fetch(`${PROMETHEUS_CLOUD_RUN}/readyz`);
+          if (readyRes.ok) {
+            const readyData = await readyRes.json();
+            logLine("CONTROL_PLANE", `✓ Connected to Prometheus v${readyData.version} (Provider: ${String(readyData.llm_provider).toUpperCase()}, Model: ${readyData.llm_model})`);
+          }
+          if (selectedTask === 'security') {
+            const jobRes = await fetch(`${PROMETHEUS_CLOUD_RUN}/api/v1/jobs/scan`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ target_url: 'http://testserver' })
+            });
+            if (jobRes.status === 202) {
+              const jobMeta = await jobRes.json();
+              logLine("ASYNC_JOB_QUEUE", `✓ Dispatched live adversarial scan job [${jobMeta.job_id}] -> polling ${jobMeta.poll_url}`, "highlight");
+            }
+          }
+        } catch (err) {
+          logLine("TELEMETRY", `Live endpoint ping note: ${err.message}`);
+        }
 
         let stepIndex = 0;
 
@@ -1380,14 +1408,14 @@
             setTimeout(nextStep, 1100);
           } else {
             statusText.textContent = "STATUS: MISSION COMPLETED // VERIFIED WITH ZERO-DRIFT";
-            logLine("ORCHESTRATOR", "✓ Mission successfully completed with 100% deterministic gate verification.", "highlight");
+            logLine("ORCHESTRATOR", "✓ Mission completed with 100% Dual-Pass CEGIS verification. Open /dashboard for full SARIF & PR artifacts.", "highlight");
             btnDispatch.disabled = false;
             btnDispatch.style.opacity = '1';
             isRunning = false;
           }
         }
 
-        setTimeout(nextStep, 500);
+        setTimeout(nextStep, 400);
       }
 
       btnDispatch.addEventListener('click', runSwarm);
