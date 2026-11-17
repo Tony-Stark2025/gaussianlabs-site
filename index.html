@@ -904,19 +904,16 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#swarm-orchestrator" class="nav-link">Swarm Engine</a></li>
-        <li><a href="#infrastructure" class="nav-link">Infrastructure</a></li>
-        <li><a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent-emerald); font-weight: 600;">Prometheus v3.0 <span style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); border-radius: 4px; padding: 2px 6px; margin-left: 4px;">LIVE</span></a></li>
-        <li><a href="data.html" class="nav-link" style="color: var(--accent-cyan); font-weight: 600;">Data Monetization <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent-cyan); border-radius: 4px; padding: 2px 6px; margin-left: 4px;">$250K+</span></a></li>
+        <li><a href="#swarm-orchestrator" class="nav-link">Live Engine</a></li>
+        <li><a href="#infrastructure" class="nav-link">Architecture</a></li>
+        <li><a href="/dashboard" class="nav-link" style="color: var(--accent-emerald); font-weight: 600;">Prometheus v3.0 <span style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); border-radius: 4px; padding: 2px 6px; margin-left: 4px;">LIVE</span></a></li>
+        <li><a href="/docs" class="nav-link">API Docs</a></li>
         <li><a href="#enterprise" class="nav-link">Partnerships</a></li>
       </ul>
 
       <div style="display: flex; gap: 0.65rem; align-items: center;">
-        <a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color: var(--accent-emerald); color: var(--accent-emerald);">
-          🛡️ Prometheus Console
-        </a>
-        <a href="data.html" class="btn btn-primary">
-          Monetize Data
+        <a href="/dashboard" class="btn btn-primary">
+          🛡️ Launch AppSec Console
         </a>
       </div>
     </div>
@@ -927,26 +924,26 @@
     <div class="container">
       <div class="hero-badge">
         <span class="hero-badge-pulse"></span>
-        Bleeding-Edge Agentic Engineering Systems
+        Prometheus Enterprise v3.0 • Autonomous AppSec &amp; Agentic Verification
       </div>
 
       <h1 class="hero-title">
-        Engineering Autonomous Agent Swarms That <span class="gradient-text">Never Hallucinate in Production.</span>
+        Prove Exploits. Ship <span class="gradient-text">Compiler-Verified Fixes</span> Before Merge.
       </h1>
 
       <p class="hero-subhead">
-        Raw foundation models are non-deterministic, volatile, and fragile. Gaussian Labs builds high-assurance agentic harnesses, multi-agent DAGs, and self-healing verification loops that turn autonomous AI into deterministic enterprise software.
+        In-VPC API penetration testing, Dual-Pass CEGIS patch verification, and coding-agent supply-chain defense (GitSpawn, Plugin4Shell, Package Firewall) in under 60 seconds per PR.
       </p>
 
       <div class="hero-actions">
-        <a href="https://trustguard-135010851380.us-central1.run.app/dashboard" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
-          🛡️ Launch Prometheus v3.0 AppSec Console →
-        </a>
-        <a href="data.html" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem; border-color: var(--accent-cyan); color: var(--accent-cyan);">
-          Monetize Legacy Data ($250k–$1.5M+) →
+        <a href="/dashboard" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          🛡️ Launch Prometheus v3.0 Console →
         </a>
         <a href="#swarm-orchestrator" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
-          Inspect Live Swarm Telemetry ↓
+          Run Live Scan Telemetry ↓
+        </a>
+        <a href="mailto:bright@gaussianlabs.dev?subject=Enterprise%20Design%20Partner%20-%20Gaussian%20Labs" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+          Book Design Partnership
         </a>
       </div>
 
@@ -1353,69 +1350,90 @@
         });
       }
 
-      const PROMETHEUS_CLOUD_RUN = 'https://trustguard-135010851380.us-central1.run.app';
+      const PROMETHEUS_API = window.location.origin;
 
       async function runSwarm() {
         if (isRunning) return;
         isRunning = true;
         btnDispatch.disabled = true;
         btnDispatch.style.opacity = '0.6';
-        statusText.textContent = "STATUS: SWARM ACTIVE // LIVE CLOUD RUN TELEMETRY";
+        statusText.textContent = "STATUS: EXECUTING LIVE PROMETHEUS v3.0 SCAN";
         resetNodes();
 
-        const scenario = taskScenarios[selectedTask];
-        logLine("ORCHESTRATOR", `Connecting to live Prometheus v3.0 Cloud Run Engine (${PROMETHEUS_CLOUD_RUN})...`, "highlight");
+        logLine("ORCHESTRATOR", `Connecting to Prometheus v3.0 Control Plane (${PROMETHEUS_API})...`, "highlight");
 
         try {
-          const readyRes = await fetch(`${PROMETHEUS_CLOUD_RUN}/readyz`);
+          nodes[0].classList.add('active');
+          nodes[0].querySelector('.dag-node-status').textContent = 'Checking /readyz';
+          const readyRes = await fetch(`${PROMETHEUS_API}/readyz`);
           if (readyRes.ok) {
             const readyData = await readyRes.json();
-            logLine("CONTROL_PLANE", `✓ Connected to Prometheus v${readyData.version} (Provider: ${String(readyData.llm_provider).toUpperCase()}, Model: ${readyData.llm_model})`);
+            nodes[0].classList.remove('active');
+            nodes[0].classList.add('completed');
+            nodes[0].querySelector('.dag-node-status').textContent = `v${readyData.version} Ready`;
+            logLine("CONTROL_PLANE", `✓ Prometheus v${readyData.version} ready (Provider: ${String(readyData.llm_provider).toUpperCase()}, Model: ${readyData.llm_model})`);
           }
-          if (selectedTask === 'security') {
-            const jobRes = await fetch(`${PROMETHEUS_CLOUD_RUN}/api/v1/jobs/scan`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ target_url: 'http://testserver' })
-            });
-            if (jobRes.status === 202) {
-              const jobMeta = await jobRes.json();
-              logLine("ASYNC_JOB_QUEUE", `✓ Dispatched live adversarial scan job [${jobMeta.job_id}] -> polling ${jobMeta.poll_url}`, "highlight");
+
+          nodes[1].classList.add('active');
+          nodes[1].querySelector('.dag-node-status').textContent = 'Dispatching Job';
+          const jobRes = await fetch(`${PROMETHEUS_API}/api/v1/jobs/scan`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ target_url: 'http://testserver' })
+          });
+          if (jobRes.status !== 202) {
+            throw new Error(`Unexpected scan enqueue status: HTTP ${jobRes.status}`);
+          }
+          const jobMeta = await jobRes.json();
+          nodes[1].classList.remove('active');
+          nodes[1].classList.add('completed');
+          nodes[1].querySelector('.dag-node-status').textContent = jobMeta.job_id;
+          logLine("ASYNC_JOB_QUEUE", `✓ Enqueued live scan job [${jobMeta.job_id}] -> polling ${jobMeta.poll_url}`, "highlight");
+
+          nodes[2].classList.add('active');
+          nodes[2].querySelector('.dag-node-status').textContent = 'Probing Routes';
+
+          let finalJob = null;
+          for (let i = 0; i < 45; i++) {
+            await new Promise(r => setTimeout(r, 800));
+            const pollRes = await fetch(`${PROMETHEUS_API}${jobMeta.poll_url}`);
+            if (!pollRes.ok) continue;
+            const jobState = await pollRes.json();
+            if (jobState.status === 'COMPLETED' && jobState.result) {
+              finalJob = jobState.result;
+              break;
+            }
+            if (jobState.status === 'FAILED') {
+              throw new Error(jobState.error || 'Scan job failed');
             }
           }
+
+          if (!finalJob) {
+            throw new Error('Scan polling timed out');
+          }
+
+          nodes[2].classList.remove('active');
+          nodes[2].classList.add('completed');
+          nodes[2].querySelector('.dag-node-status').textContent = `${finalJob.endpoints_count} Endpoints`;
+
+          nodes[3].classList.add('active');
+          nodes[3].classList.remove('active');
+          nodes[3].classList.add('completed');
+          nodes[3].querySelector('.dag-node-status').textContent = `${finalJob.exploits_count} Tier-A PoVs`;
+          logLine("CEGIS_ORACLE", `✓ Probed ${finalJob.endpoints_count} endpoints in ${finalJob.elapsed_seconds}s: ${finalJob.exploits_count} Tier-A PoVs confirmed, ${(finalJob.triage_findings || []).length} Tier-B Triage.`, "highlight");
+
+          nodes[4].classList.add('completed');
+          nodes[4].querySelector('.dag-node-status').textContent = `${finalJob.patches_count} Patches`;
+          statusText.textContent = `STATUS: COMPLETED IN ${finalJob.elapsed_seconds}s // ${finalJob.patches_count} PATCHES VERIFIED`;
+          logLine("SWE_PATCHER", `✓ Certified ${finalJob.patches_count} compiler-verified patches. Open /dashboard for full SARIF & PR diffs.`, "highlight");
         } catch (err) {
-          logLine("TELEMETRY", `Live endpoint ping note: ${err.message}`);
+          logLine("ERROR", `Live scan error: ${err.message}`, "warn");
+          statusText.textContent = "STATUS: ERROR // CHECK CONSOLE";
+        } finally {
+          btnDispatch.disabled = false;
+          btnDispatch.style.opacity = '1';
+          isRunning = false;
         }
-
-        let stepIndex = 0;
-
-        function nextStep() {
-          if (stepIndex > 0) {
-            const prev = nodes[stepIndex - 1];
-            prev.classList.remove('active');
-            prev.classList.add('completed');
-            prev.querySelector('.dag-node-status').textContent = scenario.steps[stepIndex - 1].status;
-          }
-
-          if (stepIndex < scenario.steps.length) {
-            const current = scenario.steps[stepIndex];
-            const node = nodes[current.node];
-            node.classList.add('active');
-            node.querySelector('.dag-node-status').textContent = 'Executing...';
-            logLine(current.agent, current.msg);
-
-            stepIndex++;
-            setTimeout(nextStep, 1100);
-          } else {
-            statusText.textContent = "STATUS: MISSION COMPLETED // VERIFIED WITH ZERO-DRIFT";
-            logLine("ORCHESTRATOR", "✓ Mission completed with 100% Dual-Pass CEGIS verification. Open /dashboard for full SARIF & PR artifacts.", "highlight");
-            btnDispatch.disabled = false;
-            btnDispatch.style.opacity = '1';
-            isRunning = false;
-          }
-        }
-
-        setTimeout(nextStep, 400);
       }
 
       btnDispatch.addEventListener('click', runSwarm);
