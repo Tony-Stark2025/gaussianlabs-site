@@ -223,42 +223,44 @@
 
   <section id="live-gate">
     <div class="container">
-      <div class="eyebrow">Live Production Telemetry</div>
-      <h2>Execute a Real Async Scan Against Our Control Plane</h2>
-      <p class="sec-desc">No canned animations. Clicking below dispatches a real <code>POST /api/v1/jobs/scan</code> job to our live Cloud Run engine and polls <code>GET /api/v1/jobs/{job_id}</code> until Dual-Pass CEGIS completes.</p>
+      <div class="eyebrow">Instant Zero-Install Tryout</div>
+      <h2>Paste Any Public GitHub Repo — Or Run a Live API Exploit Gate</h2>
+      <p class="sec-desc">Test Prometheus on your own code right now. Paste any public GitHub repository URL to run a live AST call-graph, Route-to-CVE, GitSpawn/Plugin4Shell, and Tier-B Semantic Sink audit in seconds.</p>
 
       <div class="sim-card">
-        <div class="sim-bar">
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--emerald);" id="sim-status">
-            STATUS: READY // CONTROL PLANE ONLINE
-          </div>
-          <button class="btn btn-primary" id="btn-run-live">⚡ Run Live Scan Job</button>
+        <div class="sim-bar" style="gap: 0.75rem;">
+          <input type="text" id="gh-repo-input" value="https://github.com/Tony-Stark2025/outreach-app" placeholder="https://github.com/owner/repo" style="flex: 1; min-width: 260px; padding: 0.65rem 1rem; border-radius: 10px; background: #030509; border: 1px solid var(--border); color: var(--text); font-family: var(--font-mono); font-size: 0.84rem;">
+          <button class="btn btn-primary" id="btn-scan-repo">🔍 Audit GitHub Repo Live</button>
+          <button class="btn btn-secondary" id="btn-run-live">⚡ Run API Exploit &amp; CEGIS Gate</button>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--emerald); margin-bottom: 1rem;" id="sim-status">
+          STATUS: READY // CONTROL PLANE ONLINE
         </div>
 
         <div class="dag-grid">
           <div class="dag-node" id="node-0">
             <div class="dag-step">STEP 01</div>
-            <div class="dag-title">Readiness Check</div>
+            <div class="dag-title">Coverage &amp; Lockfiles</div>
             <div class="dag-status">Standby</div>
           </div>
           <div class="dag-node" id="node-1">
             <div class="dag-step">STEP 02</div>
-            <div class="dag-title">Async Job Dispatch</div>
+            <div class="dag-title">AST Call-Graph</div>
             <div class="dag-status">Standby</div>
           </div>
           <div class="dag-node" id="node-2">
             <div class="dag-step">STEP 03</div>
-            <div class="dag-title">Multi-Tenant Probing</div>
+            <div class="dag-title">Exposed API Routes</div>
             <div class="dag-status">Standby</div>
           </div>
           <div class="dag-node" id="node-3">
             <div class="dag-step">STEP 04</div>
-            <div class="dag-title">CEGIS Proof Oracle</div>
+            <div class="dag-title">GitSpawn / MCP Shield</div>
             <div class="dag-status">Standby</div>
           </div>
           <div class="dag-node" id="node-4">
             <div class="dag-step">STEP 05</div>
-            <div class="dag-title">Compiler-Verified PR</div>
+            <div class="dag-title">Tier-A / Tier-B Verdict</div>
             <div class="dag-status">Standby</div>
           </div>
         </div>
@@ -267,7 +269,7 @@
           <div class="log-line">
             <span class="log-t">[ready]</span>
             <span class="log-a">PROMETHEUS:</span>
-            <span class="log-m">Click "Run Live Scan Job" to hit /readyz and /api/v1/jobs/scan on www.gaussianlabs.dev.</span>
+            <span class="log-m">Paste any public GitHub repo URL above and click "Audit GitHub Repo Live", or click "Run API Exploit &amp; CEGIS Gate".</span>
           </div>
         </div>
       </div>
@@ -421,6 +423,8 @@
   <script>
     (function () {
       const btn = document.getElementById('btn-run-live');
+      const btnRepo = document.getElementById('btn-scan-repo');
+      const repoInput = document.getElementById('gh-repo-input');
       const statusEl = document.getElementById('sim-status');
       const consoleEl = document.getElementById('live-console');
       const nodes = [0, 1, 2, 3, 4].map(i => document.getElementById('node-' + i));
@@ -440,20 +444,77 @@
         nodes[idx].querySelector('.dag-status').textContent = text;
       }
 
+      btnRepo.addEventListener('click', async () => {
+        if (running) return;
+        const targetRepo = (repoInput.value || '').trim();
+        if (!targetRepo) return;
+        running = true;
+        btnRepo.disabled = true;
+        btn.disabled = true;
+        nodes.forEach((_, i) => setNode(i, '', 'Standby'));
+        statusEl.textContent = `STATUS: AUDITING ${targetRepo}...`;
+        addLog('GITHUB_INGEST', `Fetching snapshot & lockfiles for ${targetRepo}...`, 'ok');
+
+        try {
+          setNode(0, 'active', 'Cloning & Parsing');
+          setNode(1, 'active', 'Tracing AST');
+          const res = await fetch('/api/v1/immunology/scan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ target_dir: targetRepo })
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+
+          const cov = data.coverage_telemetry || {};
+          const scList = data.agentic_supply_chain_findings || [];
+          const sinks = data.tier_b_semantic_sinks || [];
+          const routes = data.exposed_routes || [];
+
+          setNode(0, 'completed', `${cov.files_scanned || 0} Files • ${data.dependencies_scanned || 0} Deps`);
+          setNode(1, 'completed', `${data.reachable_vulnerabilities_count || 0} Reachable • ${data.suppressed_unreachable_noise_count || 0} Filtered`);
+          setNode(2, 'completed', `${routes.length} Exposed Routes`);
+          setNode(3, 'completed', `${scList.length} Supply-Chain Alerts`);
+          setNode(4, 'completed', `${sinks.length} Tier-B Sinks`);
+
+          addLog('COVERAGE', `✓ Scanned ${cov.files_scanned || 0} source files, ${data.dependencies_scanned || 0} dependencies, and ${routes.length} HTTP routes in ${data.elapsed_seconds}s.`, 'ok');
+          addLog('AST_REACHABILITY', `✓ Matched ${data.osv_advisories_matched || 0} OSV advisories: ${data.reachable_vulnerabilities_count || 0} reachable in code, ${data.suppressed_unreachable_noise_count || 0} dead-code alerts suppressed.`, 'ok');
+          if (routes.length > 0) {
+            addLog('EXPOSED_ROUTES', `Network-exposed API routes: ${routes.slice(0, 6).join(', ')}`);
+          }
+          if (scList.length > 0) {
+            scList.forEach(sc => addLog('SUPPLY_CHAIN_ALERT', `[${sc.severity}] ${sc.category} in ${sc.file}: ${sc.matched_directive}`, 'warn'));
+          } else {
+            addLog('SUPPLY_CHAIN_SHIELD', '✓ 0 GitSpawn (.git/config), Plugin4Shell (.cursor/mcp.json), or malicious npm lifecycle hooks detected.', 'ok');
+          }
+          sinks.slice(0, 3).forEach(sk => addLog('TIER_B_TRIAGE', `[${sk.severity}] ${sk.category} in ${sk.file}: ${sk.reason}`, 'warn'));
+          (data.remediation_plans || []).slice(0, 3).forEach(p => addLog('AUTO_REMEDIATION', `${p.advisory_id}: ${p.recommended_action}`, 'ok'));
+
+          statusEl.textContent = `STATUS: COMPLETED IN ${data.elapsed_seconds}s // ${data.reachable_vulnerabilities_count} REACHABLE CVES, ${sinks.length} TIER-B SINKS`;
+        } catch (err) {
+          addLog('ERROR', err.message, 'warn');
+          statusEl.textContent = 'STATUS: AUDIT ERROR';
+        } finally {
+          running = false;
+          btnRepo.disabled = false;
+          btn.disabled = false;
+        }
+      });
+
       btn.addEventListener('click', async () => {
         if (running) return;
         running = true;
         btn.disabled = true;
-        btn.style.opacity = '0.6';
+        btnRepo.disabled = true;
         nodes.forEach((_, i) => setNode(i, '', 'Standby'));
-        statusEl.textContent = 'STATUS: RUNNING LIVE SCAN JOB...';
+        statusEl.textContent = 'STATUS: RUNNING LIVE API EXPLOIT & CEGIS GATE...';
 
         try {
           setNode(0, 'active', 'Checking /readyz');
           const r = await fetch('/readyz');
           const rd = await r.json();
-          setNode(0, 'completed', `v${rd.version} Ready`);
-          addLog('CONTROL_PLANE', `✓ /readyz online (version ${rd.version}, provider=${rd.llm_provider})`, 'ok');
+          setNode(0, 'completed', `v${rd.version} (${rd.llm_provider})`);
+          addLog('CONTROL_PLANE', `✓ /readyz online (version ${rd.version}, provider=${rd.llm_provider}, model=${rd.llm_model})`, 'ok');
 
           setNode(1, 'active', 'Enqueueing...');
           const jRes = await fetch('/api/v1/jobs/scan', {
@@ -482,14 +543,14 @@
           setNode(3, 'completed', `${result.exploits_count} Tier-A PoVs`);
           setNode(4, 'completed', `${result.patches_count} Verified Fixes`);
           statusEl.textContent = `STATUS: COMPLETED IN ${result.elapsed_seconds}s // ${result.exploits_count} POVS, ${result.patches_count} PATCHES`;
-          addLog('CEGIS_ORACLE', `✓ Finished in ${result.elapsed_seconds}s: ${result.endpoints_count} endpoints, ${result.exploits_count} Tier-A PoVs, ${result.patches_count} verified patches.`, 'ok');
+          addLog('CEGIS_ORACLE', `✓ Finished in ${result.elapsed_seconds}s: ${result.endpoints_count} endpoints probed, ${result.exploits_count} Tier-A PoVs confirmed, ${result.patches_count} compiler-verified patches.`, 'ok');
         } catch (err) {
           addLog('ERROR', err.message, 'warn');
           statusEl.textContent = 'STATUS: ERROR';
         } finally {
           running = false;
           btn.disabled = false;
-          btn.style.opacity = '1';
+          btnRepo.disabled = false;
         }
       });
     })();
