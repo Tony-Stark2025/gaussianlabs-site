@@ -5,6 +5,10 @@
       "destination": "https://trustguard-135010851380.us-central1.run.app/dashboard"
     },
     {
+      "source": "/dashboard/",
+      "destination": "https://trustguard-135010851380.us-central1.run.app/dashboard"
+    },
+    {
       "source": "/readyz",
       "destination": "https://trustguard-135010851380.us-central1.run.app/readyz"
     },
