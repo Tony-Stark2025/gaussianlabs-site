@@ -1,0 +1,4 @@
+Contact: mailto:bright@gaussianlabs.dev
+Preferred-Languages: en
+Canonical: https://www.gaussianlabs.dev/.well-known/security.txt
+Expires: 2027-11-27T00:00:00.000Z
