@@ -1,0 +1,25 @@
+# Gaussian Labs — Piton
+
+> Deterministic lockfile, supply-chain firewall, and Envoy runtime sidecar for Model Context Protocol (MCP) servers and AI coding agents (`Claude Code`, `Cursor`, `OpenCode`).
+
+## Overview
+
+Gaussian Labs builds **Piton** (`v0.4.2`, MIT-licensed), an open-source supply-chain security layer for AI coding agents and production MCP fleets. Instead of wrapping agents in probabilistic prompt firewalls, Piton enforces deterministic cryptographic pins, static config linting, offline shadow replay, and wire-speed Envoy enforcement.
+
+## Core Capabilities (Piton v0.4.2)
+
+- **Split-Hash MCP Lockfiles (`piton.lock`)**: Separates every MCP tool pin into a machine contract hash (`structural_sha256` over `inputSchema`) and a prose hash (`description_sha256`). Hard-blocks silent schema parameter injection everywhere and third-party description rug pulls, while keeping internal docstring edits warning-only unless poisoning lint triggers.
+- **Coding-Agent Hook & Config RCE Linter (`uvx piton-cli scan`)**: Slim 2-dependency Python CLI (`pydantic` + `pyyaml`, zero LLM API keys, zero egress) that scans `.claude/settings.json` (`curl | sh` hooks, `Bash(*)` wildcards), `.vscode/tasks.json` (JSONC `folderOpen` autorun), `.mcp.json` (malicious STDIO credential exfiltration), and `.cursor/rules` (bidi/zero-width Unicode smuggling and covert prompt overrides) in under 100ms.
+- **Shadow-to-Enforce Replay (`piton replay --export cel|cedar`)**: Records PII-tokenized traces or ingests OpenTelemetry JSONL spans offline to verify zero false blocks before exporting calibrated `CEL` or `Cedar` policies.
+- **Go Envoy v3 `ext_proc` Sidecar & Control Plane**: Multi-arch distroless Go image (`ghcr.io/tony-stark2025/piton-sidecar:0.4.2`) providing live `tools/list` rug-pull blocking (`BodyMutation -32001`), RS256/ES256 OIDC JWKS + RFC 8693 OBO, response projection, secret scrubbing, and Slack/Web MRTR approval workflows.
+- **CI Integration**: Drop-in GitHub Action (`Tony-Stark2025/piton@v0.4.2`) for pull-request gating.
+
+## Links
+
+- Website: https://www.gaussianlabs.dev/
+- GitHub Repository: https://github.com/Tony-Stark2025/piton
+- PyPI Package (`piton-cli`): https://pypi.org/project/piton-cli/
+- Documentation: https://tony-stark2025.github.io/piton/
+- Vulnerable Demo Repository: https://github.com/Tony-Stark2025/piton-vuln-demo
+- Container Image (GHCR): https://github.com/Tony-Stark2025/piton/pkgs/container/piton-sidecar
+- Security & Contact: mailto:bright@gaussianlabs.dev
